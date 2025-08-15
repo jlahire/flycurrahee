@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft - Currahee Aviation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1e3a8a; font-size: 2.2em; margin-bottom: 10px; }
+        nav { margin-top: 15px; }
+        nav a { background: #1e3a8a; color: white; padding: 10px 20px; margin: 3px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
+        nav a:hover { background: #2563eb; }
+        .aircraft-info { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .card { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h2 { color: #1e3a8a; margin-bottom: 15px; }
+        .specs { list-style: none; }
+        .specs li { padding: 5px 0; display: flex; justify-content: space-between; border-bottom: 1px solid #e5e7eb; }
+        .specs li:last-child { border-bottom: none; }
+        .rate-card { text-align: center; background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; }
+        .rate { font-size: 2em; font-weight: bold; margin: 15px 0; }
+        .requirements { background: #fef3c7; border-left: 5px solid #f59e0b; }
+        .requirements h3 { color: #92400e; margin-bottom: 10px; }
+        footer { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        @media (max-width: 768px) {
+            .aircraft-info { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; }
+            nav a { display: block; margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Aircraft</h1>
+            <p>1965 Cessna 172 - Reliable Aircraft</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="schedule.html">Schedule</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+
+    <div class="aircraft-info">
+        <div class="card">
+            <h2>Aircraft Specs</h2>
+            <ul class="specs">
+                <li><span><strong>Make/Model:</strong></span> <span>Cessna 172</span></li>
+                <li><span><strong>Year:</strong></span> <span>1965</span></li>
+                <li><span><strong>Engine:</strong></span> <span>Continental O-300</span></li>
+                <li><span><strong>Horsepower:</strong></span> <span>145 HP</span></li>
+                <li><span><strong>Cruise Speed:</strong></span> <span>122 knots</span></li>
+                <li><span><strong>Service Ceiling:</strong></span> <span>13,100 ft</span></li>
+                <li><span><strong>Range:</strong></span> <span>640 nautical miles</span></li>
+                <li><span><strong>Seating:</strong></span> <span>4 seats</span></li>
+                <li><span><strong>Fuel Capacity:</strong></span> <span>42 gallons</span></li>
+            </ul>
+        </div>
+        
+        <div class="card rate-card">
+            <h2>Rental Rates</h2>
+            <div>
+                <h3>Wet Rate</h3>
+                <div class="rate">$180/hr</div>
+                <p>Aircraft only - fuel separate(Adjusted for conditions)</p>
+            </div>
+            <hr style="margin: 20px 0; border: 1px solid rgba(255,255,255,0.3);">
+            <div>
+                <h3>Dry Rate</h3>
+                <div class="rate">$130/hr</div>
+                <p>Aircraft only - fuel separate</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="aircraft-info">
+        <div class="card">
+            <h2>Perfect For</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">Solo practice and building hours</li>
+            </ul>
+        </div>
+        
+        <div class="card requirements">
+            <h2>Rental Requirements</h2>
+            <h3>Minimum Qualifications:</h3>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>placeholder</li>
+                <li>placeholder</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Currahee Aviation | KTOC Toccoa Regional Airport | flycurrahee.net</p>
+    </footer>
+</div>
+
+
+</body>
+</html>

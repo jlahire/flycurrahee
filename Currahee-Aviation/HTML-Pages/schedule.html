@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Currahee Aviation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1e3a8a; font-size: 2.2em; margin-bottom: 10px; }
+        nav { margin-top: 15px; }
+        nav a { background: #1e3a8a; color: white; padding: 10px 20px; margin: 3px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
+        nav a:hover { background: #2563eb; }
+        .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .card { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h2 { color: #1e3a8a; margin-bottom: 15px; }
+        .steps { list-style: none; counter-reset: step-counter; }
+        .steps li { counter-increment: step-counter; padding: 15px 0; border-bottom: 1px solid #e5e7eb; position: relative; padding-left: 50px; }
+        .steps li:last-child { border-bottom: none; }
+        .steps li::before { content: counter(step-counter); position: absolute; left: 0; top: 15px; background: #1e3a8a; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .hours-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .hours-table th, .hours-table td { padding: 10px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        .hours-table th { background: #f8fafc; color: #1e3a8a; font-weight: bold; }
+        .weather-card { background: #fef3c7; border-left: 5px solid #f59e0b; }
+        .weather-card h2 { color: #92400e; }
+        .bring-list { list-style: none; }
+        .bring-list li { padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+        .bring-list li:last-child { border-bottom: none; }
+        .bring-list li::before { content: '📋 '; margin-right: 10px; }
+        .contact-cta { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; text-align: center; padding: 25px; border-radius: 10px; margin-bottom: 30px; }
+        .contact-cta h2 { margin-bottom: 10px; }
+        .contact-cta a { color: #fbbf24; text-decoration: none; font-weight: bold; }
+        footer { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        @media (max-width: 768px) {
+            .schedule-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; }
+            nav a { display: block; margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Schedule Your Flight</h1>
+            <p>Book your aircraft rental</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="aircraft.html">Aircraft</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+    <div class="schedule-grid">
+        <div class="card">
+            <h2>How to Book</h2>
+            <ol class="steps">
+                <li><strong>Call or Email</strong><br>Contact us to check aircraft availability for your desired date and time.</li>
+                <li><strong>Provide Information</strong><br>Share your pilot credentials, experience, and intended flight plan.</li>
+                <li><strong>Schedule Checkout</strong><br>New renters must complete a checkout flight.</li>
+                <li><strong>Confirm Booking</strong><br>We'll confirm your reservation and provide pre-flight instructions.</li>
+                <li><strong>Arrive & Fly</strong><br>Arrive 30 minutes early for pre-flight inspection and paperwork.</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h2>Operating Hours</h2>
+            <table class="hours-table">
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+                <tr>
+                    <td>Monday - Friday</td>
+                    <td>TBA</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>TBA</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>TBA</td>
+                </tr>
+                <tr>
+                    <td>Holidays</td>
+                    <td>TBA</td>
+                </tr>
+            </table>
+            <p style="font-style: italic; color: #6b7280; margin-top: 10px;">Hours subject to weather conditions and aircraft availability</p>
+        </div>
+    </div>
+    
+    <div class="schedule-grid">
+        <div class="card weather-card">
+            <h2>⛅ Weather Minimums</h2>
+            <p style="margin-bottom: 15px;"><strong>Minimum conditions for VFR flight:</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+            <p style="margin-top: 15px; font-style: italic;">Weather conditions are checked before each flight. Cancellations due to weather are free of charge.</p>
+        </div>
+        
+        <div class="card">
+            <h2>What to Bring</h2>
+            <ul class="bring-list">
+                <li>placeholder</li>
+                <li>placeholder</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="contact-cta">
+        <h2>Ready to Schedule?</h2>
+        <p>Call us or send an email to book your flight time</p>
+        <p style="margin-top: 15px; font-size: 1.2em;"><a href="contact.html">Contact Us Today</a></p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Currahee Aviation | KTOC Toccoa Regional Airport | flycurrahee.net</p>
+    </footer>
+</div>
+
+
+</body>
+</html>
