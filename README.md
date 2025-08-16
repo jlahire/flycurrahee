@@ -4,8 +4,8 @@ A simple website for aviation businesses. Easy to update, works on phones, hosts
 
 ## What You Get
 
-- Homepage with photo slideshow
-- Aircraft page with specs and video
+- Homepage with business info
+- Aircraft page with specs
 - Pricing and scheduling pages
 - Contact form that emails you
 - Works on phones and computers
@@ -15,8 +15,7 @@ A simple website for aviation businesses. Easy to update, works on phones, hosts
 
 1. Get it online with GitHub Pages
 2. Edit the files in `config/` folder to add your info
-3. Upload your photos
-4. Done
+3. Done
 
 ## Your Content Files
 
@@ -30,33 +29,19 @@ All your business info is in these files - just edit them:
 
 Change these files, your website updates automatically.
 
-## Photos You Need
-
-**Logo:** Your business logo as `currahee-logo.jpg`
-Put it in: `assets/images/logos/`
-
-**Aircraft photos:** 3 photos named `aircraft-1.jpg`, `aircraft-2.jpg`, `aircraft-3.jpg`  
-Put them in: `assets/images/aircraft/`
-
-Note: `aircraft-1.jpg` appears on both homepage and aircraft page. The other two only appear on the aircraft page.
-
-## Video Setup
-
-**Landing video:** Use YouTube embed URL in the aircraft.html file. No video files needed - just replace the placeholder with your YouTube video URL.
-
 ## The Pages
 
-- **Homepage** - Shows your business, photo slideshow, contact info
-- **Aircraft** - Your plane's specs, photos, landing video, rental requirements
+- **Homepage** - Shows your business and aircraft info
+- **Aircraft** - Your plane's specs and rental requirements
 - **Pricing** - Your rates and what's included
 - **Schedule** - How to book, your hours, what to bring
 - **Contact** - Contact form, airport info, directions
 
 ## Need Help?
 
-- To update content: Read `CLIENT-UPDATES.md`
+- To update content: Read `HOW-TO-UPDATE.md`
 - Stuck? Ask me
 
 ## That's It
 
-This template gets you a professional aviation website without the headache. Update your info, upload some photos, and you're online.
+This template gets you a professional aviation website without the headache. Update your info and you're online.

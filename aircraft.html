@@ -11,7 +11,6 @@
     <div class="container">
         <header>
             <div class="header-logo-container">
-                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.JPG" alt="Currahee Aviation Logo" class="header-logo-small" onerror="this.src='Curahee-Aviation/assets/images/logos/currahee-logo.jpg'; this.onerror=function(){this.style.display='none'};">
                 <h1>Our Aircraft</h1>
             </div>
             <p><span id="aircraft-year">1965</span> <span id="aircraft-make">Cessna</span> <span id="aircraft-model">172</span> - Reliable Aircraft</p>
@@ -22,39 +21,6 @@
                 <a href="contact.html">Contact</a>
             </nav>
         </header>
-
-        <!-- Aircraft Images -->
-        <div class="aircraft-images-grid" style="margin-bottom: 30px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <img src="Curahee-Aviation\assets\images\aircraft\aircraft-1.JPG" alt="Scenic view of North Georgia mountains from aircraft cockpit" 
-                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
-                     onerror="this.src='Curahee-Aviation\assets\images\aircraft\aircraft-1.jpg'; this.onerror=function(){this.style.display='none'};">
-                <img src="Curahee-Aviation\assets\images\aircraft\aircraft-2.JPG" alt="Cessna 172 aircraft on ramp at sunset" 
-                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
-                     onerror="this.src='Curahee-Aviation\assets\images\aircraft\aircraft-2.jpg'; this.onerror=function(){this.style.display='none'};">
-                <img src="Curahee-Aviation\assets\images\aircraft\aircraft-3.JPG" alt="Flying above clouds view from aircraft" 
-                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
-                     onerror="this.src='Curahee-Aviation\assets\images\aircraft\aircraft-3.jpg'; this.onerror=function(){this.style.display='none'};">
-            </div>
-        </div>
-
-        <!-- Landing Demo Video -->
-        <div class="card" style="margin-bottom: 30px;">
-            <h2>Landing at KTOC</h2>
-            <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 8px; overflow: hidden; background: #f3f4f6;">
-                <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                    src="YOUTUBE_VIDEO_URL_PLACEHOLDER"
-                    title="Landing Demo at KTOC"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="margin-top: 15px; font-style: italic; color: #6b7280; text-align: center;">
-                Watch our approach and landing at Toccoa Regional Airport (KTOC)
-            </p>
-        </div>
 
         <div class="aircraft-info">
             <div class="card">
@@ -194,8 +160,8 @@
         }
 
         function initCarousel() {
-            // No carousel functionality needed anymore
-            console.log('Aircraft page loaded with standalone images');
+            // No images or video functionality needed
+            console.log('Aircraft page loaded');
         }
     </script>
 </body>
