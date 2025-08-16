@@ -11,7 +11,7 @@
     <div class="container">
         <header>
             <div class="header-logo-container">
-                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.JPG" alt="Currahee Aviation Logo" class="header-logo-small" onerror="this.style.display='none'">
+                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.JPG" alt="Currahee Aviation Logo" class="header-logo-small" onerror="this.src='Curahee-Aviation/assets/images/logos/currahee-logo.jpg'; this.onerror=function(){this.style.display='none'};">
                 <h1>Our Aircraft</h1>
             </div>
             <p><span id="aircraft-year">1965</span> <span id="aircraft-make">Cessna</span> <span id="aircraft-model">172</span> - Reliable Aircraft</p>
@@ -23,13 +23,18 @@
             </nav>
         </header>
 
-        <!-- Aircraft Image Carousel -->
-        <div class="carousel-container">
-            <div class="carousel" id="aircraft-carousel">
-                <!-- Aircraft slides will be generated dynamically -->
-            </div>
-            <div class="carousel-indicators" id="aircraft-indicators">
-                <!-- Indicators will be generated dynamically -->
+        <!-- Aircraft Images -->
+        <div class="aircraft-images-grid" style="margin-bottom: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <img src="Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG" alt="Scenic view of North Georgia mountains from aircraft cockpit" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
+                     onerror="this.src='Curahee-Aviation/assets/images/aircraft/aircraft-1.jpg'; this.onerror=function(){this.style.display='none'};">
+                <img src="Curahee-Aviation/assets/images/aircraft/aircraft-2.JPG" alt="Cessna 172 aircraft on ramp at sunset" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
+                     onerror="this.src='Curahee-Aviation/assets/images/aircraft/aircraft-2.jpg'; this.onerror=function(){this.style.display='none'};">
+                <img src="Curahee-Aviation/assets/images/aircraft/aircraft-3.JPG" alt="Flying above clouds view from aircraft" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"
+                     onerror="this.src='Curahee-Aviation/assets/images/aircraft/aircraft-3.jpg'; this.onerror=function(){this.style.display='none'};">
             </div>
         </div>
 
@@ -37,17 +42,14 @@
         <div class="card" style="margin-bottom: 30px;">
             <h2>Landing at KTOC</h2>
             <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 8px; overflow: hidden; background: #f3f4f6;">
-                <video 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-                    controls
-                    preload="metadata"
-                    poster="Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG">
-                    <source src="Curahee-Aviation/assets/videos/landing-demo.MOV" type="video/mp4">
-                    <p style="padding: 20px; text-align: center; color: #6b7280;">
-                        Your browser does not support the video tag. 
-                        <a href="Curahee-Aviation/assets/videos/landing-demo.MOV" style="color: #1e3a8a;">Download the video</a> to view.
-                    </p>
-                </video>
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="YOUTUBE_VIDEO_URL_PLACEHOLDER"
+                    title="Landing Demo at KTOC"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
             <p style="margin-top: 15px; font-style: italic; color: #6b7280; text-align: center;">
                 Watch our approach and landing at Toccoa Regional Airport (KTOC)
@@ -192,134 +194,8 @@
         }
 
         function initCarousel() {
-            // First, load aircraft images dynamically
-            loadAircraftImages();
-        }
-
-        function loadAircraftImages() {
-            // Define aircraft images (add more as needed)
-            const aircraftImages = [
-                { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG', alt: 'Aircraft exterior view' },
-                { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-2.JPG', alt: 'Aircraft cockpit view' },
-                { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-3.JPG', alt: 'Aircraft interior view' },
-                { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-4.JPG', alt: 'Aircraft engine view' },
-                { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-5.JPG', alt: 'Aircraft on ramp' },
-                // Add more images here by adding lines like:
-                // { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-6.JPG', alt: 'Your description' },
-            ];
-
-            let loadedImages = 0;
-            let imagesToLoad = [];
-
-            // Check which images actually exist
-            aircraftImages.forEach((imageData, index) => {
-                const img = new Image();
-                img.onload = function() {
-                    imagesToLoad.push({ ...imageData, index });
-                    loadedImages++;
-                    if (loadedImages === aircraftImages.length) {
-                        createAircraftCarousel(imagesToLoad);
-                    }
-                };
-                img.onerror = function() {
-                    loadedImages++;
-                    if (loadedImages === aircraftImages.length) {
-                        createAircraftCarousel(imagesToLoad);
-                    }
-                };
-                img.src = imageData.src;
-            });
-        }
-
-        function createAircraftCarousel(images) {
-            const carouselContainer = document.getElementById('aircraft-carousel');
-            const indicatorsContainer = document.getElementById('aircraft-indicators');
-            
-            // Clear existing content
-            carouselContainer.innerHTML = '';
-            indicatorsContainer.innerHTML = '';
-
-            if (images.length === 0) {
-                carouselContainer.innerHTML = '<div style="padding: 50px; text-align: center; color: #6b7280;">No aircraft images found. Add images to assets/images/aircraft/</div>';
-                return;
-            }
-
-            // Create slides
-            images.forEach((imageData, index) => {
-                const slide = document.createElement('div');
-                slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
-                slide.innerHTML = `<img src="${imageData.src}" alt="${imageData.alt}" loading="lazy">`;
-                carouselContainer.appendChild(slide);
-
-                // Create indicator
-                const indicator = document.createElement('div');
-                indicator.className = `carousel-indicator ${index === 0 ? 'active' : ''}`;
-                indicator.setAttribute('data-slide', index);
-                indicatorsContainer.appendChild(indicator);
-            });
-
-            // Initialize carousel functionality
-            startAircraftCarouselFunctionality();
-        }
-
-        function startAircraftCarouselFunctionality() {
-            const slides = document.querySelectorAll('#aircraft-carousel .carousel-slide');
-            const indicators = document.querySelectorAll('#aircraft-indicators .carousel-indicator');
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-            let autoRotateInterval;
-
-            if (totalSlides <= 1) return; // Don't rotate if only one image
-
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
-
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                
-                currentSlide = index;
-            }
-
-            function nextSlide() {
-                const next = (currentSlide + 1) % totalSlides;
-                showSlide(next);
-            }
-
-            function startAutoRotate() {
-                autoRotateInterval = setInterval(() => {
-                    nextSlide();
-                }, 4000);
-            }
-
-            function stopAutoRotate() {
-                if (autoRotateInterval) {
-                    clearInterval(autoRotateInterval);
-                }
-            }
-
-            // Start auto-rotation
-            startAutoRotate();
-
-            // Manual navigation via indicators
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    showSlide(index);
-                    stopAutoRotate();
-                    startAutoRotate();
-                });
-            });
-
-            // Pause auto-rotate on hover
-            const carouselContainer = document.querySelector('.carousel-container');
-            
-            carouselContainer.addEventListener('mouseenter', () => {
-                stopAutoRotate();
-            });
-
-            carouselContainer.addEventListener('mouseleave', () => {
-                startAutoRotate();
-            });
+            // No carousel functionality needed anymore
+            console.log('Aircraft page loaded with standalone images');
         }
     </script>
 </body>

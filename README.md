@@ -32,14 +32,17 @@ Change these files, your website updates automatically.
 
 ## Photos You Need
 
-**Homepage slideshow:** Any number of photos named `carousel-1.jpg`, `carousel-2.jpg`, etc.
-Put them in: `assets/images/carousel/`
+**Logo:** Your business logo as `currahee-logo.jpg`
+Put it in: `assets/images/logos/`
 
-**Aircraft photos:** Any number of photos named `aircraft-1.jpg`, `aircraft-2.jpg`, etc.  
+**Aircraft photos:** 3 photos named `aircraft-1.jpg`, `aircraft-2.jpg`, `aircraft-3.jpg`  
 Put them in: `assets/images/aircraft/`
 
-**Landing video:** One video named `landing-demo.mp4`
-Put it in: `assets/videos/`
+Note: `aircraft-1.jpg` appears on both homepage and aircraft page. The other two only appear on the aircraft page.
+
+## Video Setup
+
+**Landing video:** Use YouTube embed URL in the aircraft.html file. No video files needed - just replace the placeholder with your YouTube video URL.
 
 ## The Pages
 
