@@ -1,52 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Currahee Aviation</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h1 { color: #1e3a8a; font-size: 2.2em; margin-bottom: 10px; }
-        nav { margin-top: 15px; }
-        nav a { background: #1e3a8a; color: white; padding: 10px 20px; margin: 3px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
-        nav a:hover { background: #2563eb; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .card { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .card h2 { color: #1e3a8a; margin-bottom: 15px; }
-        .contact-info { font-size: 1.1em; }
-        .contact-info p { margin: 10px 0; display: flex; align-items: center; }
-        .contact-info strong { display: inline-block; width: 100px; }
-        .business-hours { background: #f8fafc; border-left: 5px solid #4682B4; }
-        .business-hours table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        .business-hours th, .business-hours td { padding: 8px; text-align: left; border-bottom: 1px solid #e5e7eb; }
-        .business-hours th { background: #1e3a8a; color: white; font-weight: bold; }
-        .airport-info { background: #ecfdf5; border-left: 5px solid #059669; }
-        .airport-info h2 { color: #065f46; }
-        .location-details p { margin: 8px 0; }
-        .directions { background: #fef3c7; border-left: 5px solid #f59e0b; }
-        .directions h2 { color: #92400e; }
-        .directions ol { margin: 15px 0 0 25px; }
-        .directions li { margin: 5px 0; }
-        .emergency { background: #fee2e2; border-left: 5px solid #dc2626; text-align: center; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
-        .emergency h2 { color: #991b1b; margin-bottom: 10px; }
-        .emergency p { font-size: 1.1em; }
-        footer { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.8em; }
-            nav a { display: block; margin: 5px 0; }
-        }
-    </style>
+    <meta name="description" content="Contact Currahee Aviation for aircraft rental booking and information. Located at KTOC Toccoa Regional Airport in North Georgia.">
+    <link rel="stylesheet" href="Curahee-Aviation/assets/css/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Contact Currahee Aviation</h1>
-            <p>Get in touch for bookings & or questions.</p>
+            <div class="header-logo-container">
+                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.png" alt="Currahee Aviation Logo" class="header-logo-small" onerror="this.style.display='none'">
+                <h1>Contact <span id="business-name-header">Currahee Aviation</span></h1>
+            </div>
+            <p>Get in touch for bookings & questions.</p>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="aircraft.html">Aircraft</a>
@@ -55,83 +23,252 @@
             </nav>
         </header>
 
-
-    <div class="contact-grid">
-        <div class="card">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <p><strong>Phone:</strong> placeholder</p>
-                <p><strong>Email:</strong> placeholder</p>
-                <p><strong>Payment:</strong> Cash only</p>
+        <div class="contact-grid">
+            <div class="card">
+                <h2>Contact Information</h2>
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> <span id="contact-phone">(706) 555-0123</span></p>
+                    <p><strong>Email:</strong> <span id="contact-email">info@flycurrahee.net</span></p>
+                    <p><strong>Payment:</strong> <span id="payment-method">Cash only</span></p>
+                </div>
+                
+                <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button onclick="callNow()" style="background: #059669; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;">
+                        📞 Call Now
+                    </button>
+                    <button onclick="showContactForm()" style="background: #1e3a8a; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;">
+                        ✉️ Send Message
+                    </button>
+                </div>
+                
+                <p style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 5px; font-style: italic;" id="response-note">
+                    For scheduling and information, please contact us directly. We respond to all inquiries within 24-48 hours.
+                </p>
             </div>
-            <p style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 5px; font-style: italic;">
-                For scheduling and information, please contact us directly. We respond to all inquiries within 24-48 hours.
-            </p>
-        </div>
-        
-        <div class="card business-hours">
-            <h2>Business Hours</h2>
-            <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Hours</th>
-                </tr>
-                <tr>
-                    <td>Monday - Friday</td>
-                    <td>TBA</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>TBA</td>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td>TBA</td>
-                </tr>
-                <tr>
-                    <td>Holidays</td>
-                    <td>TBA</td>
-                </tr>
-            </table>
-            <p style="font-style: italic; color: #6b7280;">Hours may vary due to weather conditions</p>
-        </div>
-    </div>
-    
-    <div class="contact-grid">
-        <div class="card airport-info">
-            <h2>Airport Information</h2>
-            <div class="location-details">
-                <p><strong>Airport:</strong> KTOC - Toccoa Regional Airport</p>
-                <p><strong>Address:</strong> 899 Airport Rd, Toccoa, GA 30577</p>
-                <p><strong>Elevation:</strong> 948 feet MSL</p>
-                <p><strong>Runway:</strong> 5/23 - 4,001 x 75 feet</p>
-                <p><strong>Surface:</strong> Asphalt</p>
-                <p><strong>Lighting:</strong> MIRL, PAPI, Beacon</p>
-                <p><strong>Services:</strong> 100LL fuel available</p>
+            
+            <div class="card business-hours">
+                <h2>Business Hours</h2>
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Hours</th>
+                    </tr>
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td id="weekday-hours">By appointment</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td id="saturday-hours">By appointment</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td id="sunday-hours">By appointment</td>
+                    </tr>
+                    <tr>
+                        <td>Holidays</td>
+                        <td id="holiday-hours">Closed</td>
+                    </tr>
+                </table>
+                <p id="hours-notes" style="font-style: italic; color: #6b7280;">Hours may vary due to weather conditions</p>
             </div>
         </div>
         
-        <div class="card directions">
-            <h2>🗺️ Driving Directions</h2>
-            <p><strong>From Atlanta (90 minutes):</strong></p>
-            <ol>
-                <li>Take I-85 North to Exit 177 (Lavonia/Toccoa)</li>
-                <li>Turn right on Highway 17 North</li>
-                <li>Continue 8 miles to Toccoa</li>
-                <li>Turn left on Airport Road</li>
-                <li>Follow signs to terminal building</li>
-            </ol>
-            <p style="margin-top: 15px;"><strong>GPS Coordinates:</strong> 34.5928°N, 83.2956°W</p>
+        <!-- Contact Form Modal -->
+        <div id="contactFormModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto;">
+                <h2 style="color: #1e3a8a; margin-bottom: 20px;">Send us a Message</h2>
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">First Name *</label>
+                        <input type="text" id="firstName" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Last Name *</label>
+                        <input type="text" id="lastName" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Message *</label>
+                        <textarea id="message" required rows="4" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px; resize: vertical;"></textarea>
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button type="button" onclick="hideContactForm()" style="background: #6b7280; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            Cancel
+                        </button>
+                        <button type="submit" style="background: #1e3a8a; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
+        
+        <div class="contact-grid">
+            <div class="card airport-info">
+                <h2>Airport Information</h2>
+                <div class="location-details">
+                    <p><strong>Airport:</strong> <span id="airport-id">KTOC</span> - <span id="airport-name">Toccoa Regional Airport</span></p>
+                    <p><strong>Address:</strong> <span id="airport-address">899 Airport Rd, Toccoa, GA 30577</span></p>
+                    <p><strong>Elevation:</strong> <span id="airport-elevation">948 feet MSL</span></p>
+                    <p><strong>Runway:</strong> <span id="airport-runway">5/23 - 4,001 x 75 feet</span></p>
+                    <p><strong>Surface:</strong> <span id="airport-surface">Asphalt</span></p>
+                    <p><strong>Lighting:</strong> <span id="airport-lighting">MIRL, PAPI, Beacon</span></p>
+                    <p><strong>Services:</strong> <span id="airport-services">100LL fuel available</span></p>
+                </div>
+            </div>
+            
+            <div class="card directions">
+                <h2>🗺️ Driving Directions</h2>
+                <p><strong id="directions-from">From Atlanta (90 minutes):</strong></p>
+                <ol id="directions-steps">
+                    <li>Take I-85 North to Exit 177 (Lavonia/Toccoa)</li>
+                    <li>Turn right on Highway 17 North</li>
+                    <li>Continue 8 miles to Toccoa</li>
+                    <li>Turn left on Airport Road</li>
+                    <li>Follow signs to terminal building</li>
+                </ol>
+                <p style="margin-top: 15px;"><strong>GPS Coordinates:</strong> <span id="gps-coordinates">34.5928°N, 83.2956°W</span></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 <span id="business-name-footer">Currahee Aviation</span> | KTOC Toccoa Regional Airport | flycurrahee.net</p>
+            <p>Serving the North Georgia mountains with safe, reliable flight</p>
+        </footer>
     </div>
 
-    
-    <footer>
-        <p>&copy; 2025 Currahee Aviation | KTOC Toccoa Regional Airport | flycurrahee.net</p>
-        <p>Serving the North Georgia mountains with safe, reliable flight</p>
-    </footer>
-</div>
+    <!-- Load Configuration -->
+    <script src="Curahee-Aviation/config/contact-info.js"></script>
+    <script src="Curahee-Aviation/config/schedule.js"></script>
+    <script src="Curahee-Aviation/config/airport-info.js"></script>
 
+    <!-- Dynamic Content Loading & Contact Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate content from config files
+            if (typeof CONTACT_INFO !== 'undefined' && 
+                typeof SCHEDULE_CONFIG !== 'undefined' && 
+                typeof AIRPORT_CONFIG !== 'undefined') {
+                populateContent();
+            } else {
+                console.warn('Some config files not loaded, using default content');
+            }
+        });
 
+        function populateContent() {
+            // Populate business name and contact info
+            document.getElementById('business-name-header').textContent = CONTACT_INFO.businessName;
+            document.getElementById('business-name-footer').textContent = CONTACT_INFO.businessName;
+            document.getElementById('contact-phone').textContent = CONTACT_INFO.phone;
+            document.getElementById('contact-email').textContent = CONTACT_INFO.email;
+
+            // Populate business hours from schedule config
+            if (SCHEDULE_CONFIG.businessHours) {
+                document.getElementById('weekday-hours').textContent = SCHEDULE_CONFIG.businessHours.weekdays;
+                document.getElementById('saturday-hours').textContent = SCHEDULE_CONFIG.businessHours.saturday;
+                document.getElementById('sunday-hours').textContent = SCHEDULE_CONFIG.businessHours.sunday;
+                document.getElementById('holiday-hours').textContent = SCHEDULE_CONFIG.businessHours.holidays;
+                document.getElementById('hours-notes').textContent = SCHEDULE_CONFIG.businessHours.notes;
+            }
+
+            // Populate response time
+            if (SCHEDULE_CONFIG.scheduling && SCHEDULE_CONFIG.scheduling.responseTime) {
+                document.getElementById('response-note').innerHTML = `For scheduling and information, please contact us directly. ${SCHEDULE_CONFIG.scheduling.responseTime}.`;
+            }
+
+            // Populate airport information
+            if (AIRPORT_CONFIG.airport) {
+                document.getElementById('airport-id').textContent = AIRPORT_CONFIG.airport.identifier;
+                document.getElementById('airport-name').textContent = AIRPORT_CONFIG.airport.name;
+                document.getElementById('airport-address').textContent = AIRPORT_CONFIG.airport.address;
+                document.getElementById('airport-elevation').textContent = AIRPORT_CONFIG.airport.elevation;
+                document.getElementById('airport-runway').textContent = AIRPORT_CONFIG.airport.runway;
+                document.getElementById('airport-surface').textContent = AIRPORT_CONFIG.airport.surface;
+                document.getElementById('airport-lighting').textContent = AIRPORT_CONFIG.airport.lighting;
+                document.getElementById('airport-services').textContent = AIRPORT_CONFIG.airport.services;
+            }
+
+            // Populate directions
+            if (AIRPORT_CONFIG.directions) {
+                document.getElementById('directions-from').textContent = AIRPORT_CONFIG.directions.fromLocation;
+                document.getElementById('gps-coordinates').textContent = AIRPORT_CONFIG.directions.gpsCoordinates;
+                
+                const stepsList = document.getElementById('directions-steps');
+                stepsList.innerHTML = '';
+                AIRPORT_CONFIG.directions.steps.forEach(step => {
+                    const li = document.createElement('li');
+                    li.textContent = step;
+                    stepsList.appendChild(li);
+                });
+            }
+        }
+
+        function callNow() {
+            if (typeof CONTACT_INFO !== 'undefined' && CONTACT_INFO.phone) {
+                window.location.href = 'tel:' + CONTACT_INFO.phone;
+            } else {
+                window.location.href = 'tel:(706) 555-0123';
+            }
+        }
+
+        function showContactForm() {
+            document.getElementById('contactFormModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideContactForm() {
+            document.getElementById('contactFormModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.getElementById('contactForm').reset();
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+            
+            const emailBody = `Name: ${firstName} ${lastName}%0D%0APhone: ${phoneNumber}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+            
+            const emailSubject = `Contact Form - ${firstName} ${lastName}`;
+            const emailTo = typeof CONTACT_INFO !== 'undefined' ? CONTACT_INFO.email : 'info@flycurrahee.net';
+            
+            const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Hide form after submission
+            hideContactForm();
+            
+            // Show confirmation
+            alert('Thank you for your message! Your email client should open with the message ready to send.');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactFormModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                hideContactForm();
+            }
+        });
+
+        // Add hover effects to buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-1px)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>

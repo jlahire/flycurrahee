@@ -1,47 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - Currahee Aviation</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h1 { color: #1e3a8a; font-size: 2.2em; margin-bottom: 10px; }
-        nav { margin-top: 15px; }
-        nav a { background: #1e3a8a; color: white; padding: 10px 20px; margin: 3px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
-        nav a:hover { background: #2563eb; }
-        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .rate-card { background: rgba(255,255,255,0.95); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-        .rate-card.wet { border-top: 5px solid #059669; }
-        .rate-card.dry { border-top: 5px solid #dc2626; }
-        .rate { font-size: 3em; font-weight: bold; margin: 15px 0; }
-        .rate-card.wet .rate { color: #059669; }
-        .rate-card.dry .rate { color: #dc2626; }
-        .policies { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .policies h2 { color: #1e3a8a; margin-bottom: 20px; }
-        .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .policy-section h3 { color: #4682B4; margin-bottom: 10px; }
-        .policy-section ul { margin-left: 20px; }
-        .policy-section li { margin-bottom: 5px; }
-        .payment-info { background: #fef3c7; border-left: 5px solid #f59e0b; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
-        .payment-info h2 { color: #92400e; margin-bottom: 10px; }
-        footer { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) {
-            .pricing-grid, .policy-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.8em; }
-            nav a { display: block; margin: 5px 0; }
-            .rate { font-size: 2.5em; }
-        }
-    </style>
+    <meta name="description" content="Aircraft rental rates and policies at Currahee Aviation. Competitive wet and dry rates for Cessna 172 rental at KTOC.">
+    <link rel="stylesheet" href="Curahee-Aviation/assets/css/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Pricing & Policies</h1>
+            <div class="header-logo-container">
+                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.png" alt="Currahee Aviation Logo" class="header-logo-small" onerror="this.style.display='none'">
+                <h1>Pricing & Policies</h1>
+            </div>
             <p>Transparent rates and clear policies</p>
             <nav>
                 <a href="index.html">Home</a>
@@ -51,80 +23,188 @@
             </nav>
         </header>
 
-
-    <div class="pricing-grid">
-        <div class="rate-card wet">
-            <h2>Wet Rate</h2>
-            <div class="rate">$180</div>
-            <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Per Hour</strong></p>
-            <h3>Includes:</h3>
-            <ul style="text-align: left; margin: 15px 0;">
-                <li>Aircraft rental</li>
-                <li>You provide fuel</li>
-                <li>placeholder</li>
-                <li>placeholder</li>
-            </ul>
-            <p><strong>Best for building hours.</strong></p>
+        <div class="pricing-grid">
+            <div class="rate-card wet">
+                <h2>Wet Rate</h2>
+                <div class="rate"><span id="wet-rate">$180</span></div>
+                <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Per Hour</strong></p>
+                <h3>Includes:</h3>
+                <ul id="wet-rate-includes" style="text-align: left; margin: 15px 0;">
+                    <li>Aircraft rental</li>
+                    <li>Standard avionics and equipment</li>
+                    <li>Pre-flight inspection</li>
+                    <li>Customer provides fuel</li>
+                </ul>
+                <p><strong id="wet-rate-best-for">Best for standard flight operations</strong></p>
+            </div>
+            
+            <div class="rate-card dry">
+                <h2>Dry Rate</h2>
+                <div class="rate"><span id="dry-rate">$130</span></div>
+                <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Per Hour</strong></p>
+                <h3>Includes:</h3>
+                <ul id="dry-rate-includes" style="text-align: left; margin: 15px 0;">
+                    <li>Aircraft rental only</li>
+                    <li>Customer provides fuel</li>
+                    <li>Customer responsible for pre-flight</li>
+                    <li>Basic equipment package</li>
+                </ul>
+                <p><strong id="dry-rate-best-for">Best for experienced pilots</strong></p>
+            </div>
         </div>
         
-        <div class="rate-card dry">
-            <h2>Dry Rate</h2>
-            <div class="rate">$130</div>
-            <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Per Hour</strong></p>
-            <h3>Includes:</h3>
-            <ul style="text-align: left; margin: 15px 0;">
-                <li>Aircraft rental only</li>
-                <li>You provide fuel</li>
-                <li>placeholder</li>
-                <li>placeholder</li>
-            </ul>
-            <p><strong>Best for building hours.</strong></p>
+        <div class="payment-info">
+            <h2>Payment</h2>
+            <p><strong id="payment-method">Cash Only</strong> - <span id="payment-timing">Payment is due at the time of aircraft return</span>. <span id="payment-notes">Please bring exact change when possible.</span></p>
         </div>
-    </div>
-    
-    <div class="payment-info">
-        <h2>Payment</h2>
-        <p><strong>Cash Only</strong> - We accept cash payments for all aircraft rentals and services. Payment is due at the time of aircraft return. Please bring exact change when possible.</p>
-    </div>
-    
-    <div class="policies">
-        <h2>Policies</h2>
-        <div class="policy-grid">
-            <div class="policy-section">
-                <h3>Cancellation</h3>
-                <ul>
-                    <li>placeholder</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h3>Scheduling</h3>
-                <ul>
-                    <li>placeholder</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h3>Fuel</h3>
-                <ul>
-                    <li>placeholder</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h3>Insurance</h3>
-                <ul>
-                    <li>placeholder</li>
-                </ul>
+        
+        <div class="policies">
+            <h2>Policies</h2>
+            <div class="policy-grid">
+                <div class="policy-section">
+                    <h3>Cancellation</h3>
+                    <ul id="cancellation-policy">
+                        <li>24 hours advance notice required</li>
+                        <li>Weather cancellations free of charge</li>
+                        <li>Contact us immediately for any changes</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>Scheduling</h3>
+                    <ul id="scheduling-policy">
+                        <li>24-hour minimum advance booking</li>
+                        <li>Subject to aircraft availability</li>
+                        <li>Schedule changes subject to availability</li>
+                        <li>All bookings require confirmation</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>Fuel</h3>
+                    <ul id="fuel-policy">
+                        <li>100LL aviation fuel required</li>
+                        <li>Renter provides all fuel</li>
+                        <li>Return aircraft with same fuel level</li>
+                        <li>Fuel available on field at KTOC</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>Insurance</h3>
+                    <ul id="insurance-policy">
+                        <li>Renter's insurance required for all flights</li>
+                        <li>Must meet minimum coverage requirements</li>
+                        <li>Certificate of insurance required before flight</li>
+                        <li>Insurance verified at check-in</li>
+                    </ul>
+                </div>
             </div>
         </div>
+        
+        <footer>
+            <p>&copy; 2025 <span id="business-name">Currahee Aviation</span> | KTOC Toccoa Regional Airport | flycurrahee.net</p>
+        </footer>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 Currahee Aviation | KTOC Toccoa Regional Airport | flycurrahee.net</p>
-    </footer>
-</div>
 
+    <!-- Load Configuration -->
+    <script src="Curahee-Aviation/config/contact-info.js"></script>
+    <script src="Curahee-Aviation/config/business-config.js"></script>
+    <script src="Curahee-Aviation/config/pricing.js"></script>
+    <script src="Curahee-Aviation/config/policies.js"></script>
 
+    <!-- Dynamic Content Loading -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate content from config files
+            if (typeof CONTACT_INFO !== 'undefined' && 
+                typeof BUSINESS_CONFIG !== 'undefined' && 
+                typeof PRICING_CONFIG !== 'undefined' && 
+                typeof POLICIES_CONFIG !== 'undefined') {
+                populateContent();
+            } else {
+                console.warn('Some config files not loaded, using default content');
+            }
+        });
+
+        function populateContent() {
+            // Populate business name
+            document.getElementById('business-name').textContent = CONTACT_INFO.businessName;
+
+            // Populate rates from business config
+            document.getElementById('wet-rate').textContent = BUSINESS_CONFIG.wetRate;
+            document.getElementById('dry-rate').textContent = BUSINESS_CONFIG.dryRate;
+
+            // Populate pricing details
+            if (PRICING_CONFIG.wetRate) {
+                populateList('wet-rate-includes', PRICING_CONFIG.wetRate.includes);
+                document.getElementById('wet-rate-best-for').textContent = `Best for ${PRICING_CONFIG.wetRate.bestFor}`;
+            }
+
+            if (PRICING_CONFIG.dryRate) {
+                populateList('dry-rate-includes', PRICING_CONFIG.dryRate.includes);
+                document.getElementById('dry-rate-best-for').textContent = `Best for ${PRICING_CONFIG.dryRate.bestFor}`;
+            }
+
+            // Populate payment information
+            if (PRICING_CONFIG.payment) {
+                document.getElementById('payment-method').textContent = PRICING_CONFIG.payment.method;
+                document.getElementById('payment-timing').textContent = PRICING_CONFIG.payment.timing;
+                document.getElementById('payment-notes').textContent = PRICING_CONFIG.payment.notes;
+            }
+
+            // Populate policies
+            if (POLICIES_CONFIG.cancellation) {
+                const cancellationItems = [
+                    POLICIES_CONFIG.cancellation.notice,
+                    POLICIES_CONFIG.cancellation.weatherPolicy,
+                    POLICIES_CONFIG.cancellation.contact
+                ];
+                populateList('cancellation-policy', cancellationItems);
+            }
+
+            if (POLICIES_CONFIG.scheduling) {
+                const schedulingItems = [
+                    POLICIES_CONFIG.scheduling.advanceBooking,
+                    POLICIES_CONFIG.scheduling.maximumBooking,
+                    POLICIES_CONFIG.scheduling.modifications,
+                    POLICIES_CONFIG.scheduling.confirmation
+                ];
+                populateList('scheduling-policy', schedulingItems);
+            }
+
+            if (POLICIES_CONFIG.fuel) {
+                const fuelItems = [
+                    POLICIES_CONFIG.fuel.type,
+                    POLICIES_CONFIG.fuel.responsibility,
+                    POLICIES_CONFIG.fuel.return,
+                    POLICIES_CONFIG.fuel.location
+                ];
+                populateList('fuel-policy', fuelItems);
+            }
+
+            if (POLICIES_CONFIG.insurance) {
+                const insuranceItems = [
+                    POLICIES_CONFIG.insurance.requirement,
+                    POLICIES_CONFIG.insurance.coverage,
+                    POLICIES_CONFIG.insurance.documentation,
+                    POLICIES_CONFIG.insurance.verification
+                ];
+                populateList('insurance-policy', insuranceItems);
+            }
+        }
+
+        function populateList(elementId, items) {
+            const listElement = document.getElementById(elementId);
+            if (listElement && items) {
+                listElement.innerHTML = '';
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    listElement.appendChild(li);
+                });
+            }
+        }
+    </script>
 </body>
 </html>

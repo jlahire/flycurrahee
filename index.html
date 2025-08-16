@@ -1,41 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currahee Aviation - Flight Hours in Toccoa, GA</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 30px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h1 { color: #1e3a8a; font-size: 2.5em; margin-bottom: 10px; font-weight: bold; }
-        .tagline { color: #4682B4; font-size: 1.2em; font-style: italic; margin-bottom: 20px; }
-        nav { margin-top: 20px; }
-        nav a { background: #1e3a8a; color: white; padding: 12px 24px; margin: 5px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
-        nav a:hover { background: #2563eb; }
-        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .card { background: rgba(255,255,255,0.95); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .card h2 { color: #1e3a8a; margin-bottom: 15px; font-size: 1.5em; }
-        .rate { font-size: 1.5em; color: #dc2626; font-weight: bold; margin: 10px 0; }
-        .features { list-style: none; }
-        .features li { padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
-        .features li:last-child { border-bottom: none; }
-        .features li::before { content: '✈️ '; margin-right: 10px; }
-        footer { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) {
-            .main-content { grid-template-columns: 1fr; }
-            h1 { font-size: 2em; }
-            nav a { display: block; margin: 5px 0; }
-        }
-    </style>
+    <meta name="description" content="Aircraft rental at KTOC Toccoa Regional Airport. 1965 Cessna 172 available for building flight hours. Competitive rates, scenic North Georgia flying.">
+    <link rel="stylesheet" href="Curahee-Aviation/assets/css/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Currahee Aviation</h1>
-            <p class="tagline">"Soar Above the Mountains of North Georgia"</p>
+            <div class="header-logo-container">
+                <img src="Curahee-Aviation/assets/images/logos/currahee-logo.png" alt="Currahee Aviation Logo" class="header-logo" onerror="this.style.display='none'">
+                <h1 id="business-name">Currahee Aviation</h1>
+            </div>
+            <p class="tagline" id="tagline">"Soar Above the Mountains of North Georgia"</p>
             <nav>
                 <a href="aircraft.html">Aircraft</a>
                 <a href="pricing.html">Pricing</a>
@@ -44,33 +23,211 @@
             </nav>
         </header>
 
+        <!-- Image Carousel -->
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-slide active">
+                    <img src="Curahee-Aviation/assets/images/carousel/carousel-1.jpg" alt="Aircraft exterior view" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Curahee-Aviation/assets/images/carousel/carousel-2.jpg" alt="Aircraft cockpit view" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Curahee-Aviation/assets/images/carousel/carousel-3.jpg" alt="Airport aerial view" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Curahee-Aviation/assets/images/carousel/carousel-4.jpg" alt="Mountain flying scenery" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Curahee-Aviation/assets/images/carousel/carousel-5.jpg" alt="Aircraft in flight" loading="lazy">
+                </div>
+            </div>
+            <div class="carousel-indicators" id="carousel-indicators">
+                <div class="carousel-indicator active" data-slide="0"></div>
+                <div class="carousel-indicator" data-slide="1"></div>
+                <div class="carousel-indicator" data-slide="2"></div>
+                <div class="carousel-indicator" data-slide="3"></div>
+                <div class="carousel-indicator" data-slide="4"></div>
+            </div>
+        </div>
 
-    <div class="main-content">
-        <div class="card">
-            <h2>Our Aircraft</h2>
-            <h3>1965 Cessna 172</h3>
-            <p>Experience flight in our well-maintained classic Cessna 172. Perfect for building up flight hours, ideal for student pilots.</p>
-            <div class="rate">$180/hr Wet • $130/hr Dry</div>
+        <div class="main-content">
+            <div class="card">
+                <h2>Our Aircraft</h2>
+                <h3><span id="aircraft-year">1965</span> <span id="aircraft-model">Cessna 172</span></h3>
+                <p>Experience flight in our well-maintained classic Cessna 172. Perfect for building up flight hours, ideal for student pilots.</p>
+                <div class="rate"><span id="wet-rate">$180</span>/hr Wet • <span id="dry-rate">$130</span>/hr Dry</div>
+            </div>
+            
+            <div class="card">
+                <h2>Why Choose <span id="business-name-2">Currahee Aviation</span></h2>
+                <ul class="features">
+                    <li>Located at KTOC Toccoa Regional Airport</li>
+                    <li>Classic <span id="aircraft-year-2">1965</span> <span id="aircraft-model-2">Cessna 172</span> aircraft</li>
+                    <li>Competitive hourly rates</li>
+                    <li>Scenic North Georgia mountain flying</li>
+                    <li>Cash payment for simplicity</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Information Card -->
+        <div class="contact-cta">
+            <h2>Contact <span id="business-name-3">Currahee Aviation</span></h2>
+            <p>Get in touch for aircraft scheduling and information</p>
+            <div class="contact-info-display">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <strong>Phone:</strong>
+                    <a href="tel:" id="phone-link">
+                        <span id="phone-number">(706) 555-0123</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <strong>Email:</strong>
+                    <a href="mailto:" id="email-link">
+                        <span id="email-address">info@flycurrahee.net</span>
+                    </a>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-style: italic; color: #6b7280;">
+                We respond to all inquiries within 24-48 hours
+            </p>
         </div>
         
-        <div class="card">
-            <h2>Why Choose Currahee Aviation</h2>
-            <ul class="features">
-                <li>Located at KTOC Toccoa Regional Airport</li>
-                <li>Classic 1965 Cessna 172 aircraft</li>
-                <li>Competitive hourly rates</li>
-                <li>Scenic North Georgia mountain flying</li>
-                <li>Cash payment for simplicity</li>
-            </ul>
-        </div>
+        <footer>
+            <p>&copy; 2025 <span id="business-name-footer">Currahee Aviation</span> | KTOC Toccoa Regional Airport | flycurrahee.net</p>
+            <p>Cash Payment Only | Call for Scheduling and Information</p>
+        </footer>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 Currahee Aviation | KTOC Toccoa Regional Airport | flycurrahee.net</p>
-        <p>Cash Payment Only | Call for Scheduling and Information</p>
-    </footer>
-</div>
 
+    <!-- Load Configuration -->
+    <script src="Curahee-Aviation/config/contact-info.js"></script>
+    <script src="Curahee-Aviation/config/business-config.js"></script>
 
+    <!-- Dynamic Content Loading & Carousel -->
+    <script>
+        // Wait for config files to load, then populate content
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if config objects are loaded
+            if (typeof CONTACT_INFO !== 'undefined' && typeof BUSINESS_CONFIG !== 'undefined') {
+                populateContent();
+            } else {
+                // Fallback if config files don't load - use default content
+                console.warn('Config files not loaded, using default content');
+            }
+            
+            // Initialize carousel
+            initCarousel();
+        });
+
+        function populateContent() {
+            // Populate contact information
+            const phoneElements = document.querySelectorAll('#phone-number');
+            const emailElements = document.querySelectorAll('#email-address');
+            const phoneLinks = document.querySelectorAll('#phone-link');
+            const emailLinks = document.querySelectorAll('#email-link');
+            const businessNameElements = document.querySelectorAll('#business-name, #business-name-footer, #business-name-2, #business-name-3');
+
+            phoneElements.forEach(el => el.textContent = CONTACT_INFO.phone);
+            emailElements.forEach(el => el.textContent = CONTACT_INFO.email);
+            phoneLinks.forEach(el => el.href = 'tel:' + CONTACT_INFO.phone);
+            emailLinks.forEach(el => el.href = 'mailto:' + CONTACT_INFO.email);
+            businessNameElements.forEach(el => el.textContent = CONTACT_INFO.businessName);
+
+            // Populate business information
+            const taglineElement = document.getElementById('tagline');
+            const wetRateElements = document.querySelectorAll('#wet-rate');
+            const dryRateElements = document.querySelectorAll('#dry-rate');
+            const aircraftYearElements = document.querySelectorAll('#aircraft-year, #aircraft-year-2');
+            const aircraftModelElements = document.querySelectorAll('#aircraft-model, #aircraft-model-2');
+
+            if (taglineElement) taglineElement.textContent = BUSINESS_CONFIG.tagline;
+            wetRateElements.forEach(el => el.textContent = BUSINESS_CONFIG.wetRate);
+            dryRateElements.forEach(el => el.textContent = BUSINESS_CONFIG.dryRate);
+            aircraftYearElements.forEach(el => el.textContent = BUSINESS_CONFIG.aircraftYear);
+            aircraftModelElements.forEach(el => el.textContent = BUSINESS_CONFIG.aircraftModel);
+        }
+
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoRotateInterval;
+
+            function showSlide(index) {
+                // Remove active class from all slides and indicators
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                // Add active class to current slide and indicator
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % totalSlides;
+                showSlide(next);
+            }
+
+            function startAutoRotate() {
+                autoRotateInterval = setInterval(() => {
+                    nextSlide();
+                }, 4000);
+            }
+
+            function stopAutoRotate() {
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                }
+            }
+
+            // Start auto-rotation
+            startAutoRotate();
+
+            // Manual navigation via indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                    // Reset auto-rotate timer when user manually navigates
+                    stopAutoRotate();
+                    startAutoRotate();
+                });
+            });
+
+            // Pause auto-rotate on hover
+            const carouselContainer = document.querySelector('.carousel-container');
+            
+            carouselContainer.addEventListener('mouseenter', () => {
+                stopAutoRotate();
+            });
+
+            carouselContainer.addEventListener('mouseleave', () => {
+                startAutoRotate();
+            });
+        }
+
+        // Handle missing images gracefully
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselImages = document.querySelectorAll('.carousel-slide img');
+            
+            carouselImages.forEach((img, index) => {
+                img.addEventListener('error', function() {
+                    // Hide slide if image fails to load
+                    this.parentElement.style.display = 'none';
+                    
+                    // Hide corresponding indicator
+                    const indicator = document.querySelector(`[data-slide="${index}"]`);
+                    if (indicator) {
+                        indicator.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
