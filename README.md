@@ -44,4 +44,4 @@ Change these files, your website updates automatically.
 
 ## That's It
 
-This template gets you a professional aviation website without the headache. Update your info and you're online.
+This template gets you a work around until you get a professional.

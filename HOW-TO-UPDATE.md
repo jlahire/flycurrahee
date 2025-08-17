@@ -39,15 +39,14 @@ This guide shows you how to update your website content without any coding knowl
 
 ### Aircraft Photos
 Upload to `assets/images/aircraft/` with names:
-- `aircraft-1.jpg`, `aircraft-2.jpg`, `aircraft-3.jpg`
-
-### Homepage Carousel
-Upload to `assets/images/carousel/` with names:
-- `carousel-1.jpg` through `carousel-5.jpg`
-
-### Landing Video
-Upload to `assets/videos/` as:
-- `landing-demo.mp4`
+```
+Curahee-Aviation/assets/images/aircraft/
+├── aircraft-1.JPG  ← Exterior view
+├── aircraft-2.JPG  ← Cockpit view  
+├── aircraft-3.JPG  ← Interior view
+├── aircraft-4.JPG  ← Engine view
+└── aircraft-5.JPG  ← Ramp view
+```
 
 ## Business Hours
 Edit `schedule.js`:
@@ -72,4 +71,4 @@ Your repository keeps a history of all changes. You can always revert back to a 
 
 ## Need Help?
 
-Contact your developer if you need assistance or want to add new features not covered by these config files.
+Reach out to me.
