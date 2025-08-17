@@ -281,23 +281,18 @@ nav a:hover {
     color: white;
 }
 
-/* Fix rate card lists to stay centered */
+/* Fix rate card lists to stay inside boxes */
 .rate-card ul {
-    display: inline-block;
     text-align: left;
-    margin: 15px auto;
-    padding-left: 0;
-    list-style: none;
+    margin: 15px 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
 .rate-card li {
     margin-bottom: 8px;
     padding-left: 0;
-}
-
-.rate-card li::before {
-    content: "• ";
-    margin-right: 8px;
 }
 
 /* Special Cards */
