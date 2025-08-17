@@ -25,7 +25,7 @@
 
         <!-- Aircraft Photo Gallery Preview -->
         <div class="aircraft-gallery-preview" style="margin-bottom: 30px;">
-            <div style="position: relative; width: 100%; height: 350px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <div onclick="openPhotoGallery()" style="position: relative; width: 100%; height: 350px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <div style="text-align: center; color: #64748b;">
                     <div style="font-size: 48px; margin-bottom: 15px;">📸</div>
                     <h3 style="color: #374151; margin-bottom: 10px;">Aircraft Photo Gallery</h3>
@@ -35,6 +35,34 @@
                         <span>Click to browse photos</span>
                         <span>→</span>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Modal -->
+        <div id="photoGalleryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="position: relative; max-width: 90%; max-height: 90%; display: flex; align-items: center; justify-content: center;">
+                <!-- Close Button -->
+                <button onclick="closePhotoGallery()" style="position: absolute; top: -50px; right: 0; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 1001;">
+                    ✕
+                </button>
+                
+                <!-- Previous Button -->
+                <button onclick="previousPhoto()" style="position: absolute; left: -60px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 30px; padding: 15px 20px; border-radius: 50%; cursor: pointer; z-index: 1001;">
+                    ←
+                </button>
+                
+                <!-- Photo Display -->
+                <img id="galleryPhoto" src="" alt="Aircraft Photo" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                
+                <!-- Next Button -->
+                <button onclick="nextPhoto()" style="position: absolute; right: -60px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 30px; padding: 15px 20px; border-radius: 50%; cursor: pointer; z-index: 1001;">
+                    →
+                </button>
+                
+                <!-- Photo Counter -->
+                <div id="photoCounter" style="position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); color: white; font-size: 16px; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px;">
+                    1 of 5
                 </div>
             </div>
         </div>
@@ -177,9 +205,97 @@
         }
 
         function initCarousel() {
-            // No images or video functionality needed
+            // No carousel functionality needed
             console.log('Aircraft page loaded');
         }
+
+        // Photo Gallery Variables
+        let currentPhotoIndex = 0;
+        const aircraftPhotos = [
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG', alt: 'Aircraft exterior view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-2.JPG', alt: 'Aircraft cockpit view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-3.JPG', alt: 'Aircraft interior view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-4.JPG', alt: 'Aircraft engine view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-5.JPG', alt: 'Aircraft on ramp view' }
+        ];
+
+        // Photo Gallery Functions
+        function openPhotoGallery() {
+            currentPhotoIndex = 0;
+            document.getElementById('photoGalleryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            showCurrentPhoto();
+        }
+
+        function closePhotoGallery() {
+            document.getElementById('photoGalleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % aircraftPhotos.length;
+            showCurrentPhoto();
+        }
+
+        function previousPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + aircraftPhotos.length) % aircraftPhotos.length;
+            showCurrentPhoto();
+        }
+
+        function showCurrentPhoto() {
+            const photo = aircraftPhotos[currentPhotoIndex];
+            const photoElement = document.getElementById('galleryPhoto');
+            const counterElement = document.getElementById('photoCounter');
+            
+            // Try uppercase first, fallback to lowercase
+            const img = new Image();
+            img.onload = function() {
+                photoElement.src = this.src;
+                photoElement.alt = photo.alt;
+            };
+            img.onerror = function() {
+                // Try lowercase version
+                const lowercaseSrc = photo.src.replace('.JPG', '.jpg');
+                const fallbackImg = new Image();
+                fallbackImg.onload = function() {
+                    photoElement.src = this.src;
+                    photoElement.alt = photo.alt;
+                };
+                fallbackImg.onerror = function() {
+                    console.warn('Photo not found:', photo.src);
+                };
+                fallbackImg.src = lowercaseSrc;
+            };
+            img.src = photo.src;
+            
+            // Update counter
+            counterElement.textContent = `${currentPhotoIndex + 1} of ${aircraftPhotos.length}`;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('photoGalleryModal');
+            if (modal.style.display === 'flex') {
+                switch(event.key) {
+                    case 'Escape':
+                        closePhotoGallery();
+                        break;
+                    case 'ArrowLeft':
+                        previousPhoto();
+                        break;
+                    case 'ArrowRight':
+                        nextPhoto();
+                        break;
+                }
+            }
+        });
+
+        // Close modal when clicking outside the photo
+        document.getElementById('photoGalleryModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closePhotoGallery();
+            }
+        });
     </script>
 </body>
 </html>
