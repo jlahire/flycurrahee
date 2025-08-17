@@ -7,7 +7,7 @@ const PRICING_CONFIG = {
         description: "Aircraft rental with standard equipment",
         includes: [
             "Aircraft rental",
-            "Standard avionics and equipment",
+            "Standard avionics and equipment", 
             "Pre-flight inspection",
             "Customer provides fuel"
         ],
@@ -29,7 +29,7 @@ const PRICING_CONFIG = {
     // Payment Information
     payment: {
         method: "Cash only",
-        timing: "Payment due pre-flight",
+        timing: "Payment due at aircraft return",
         notes: "Please bring exact change when possible"
     },
     
