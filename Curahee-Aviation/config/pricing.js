@@ -11,19 +11,19 @@ const PRICING_CONFIG = {
             "Pre-flight inspection",
             "Customer provides fuel"
         ],
-        bestFor: "Standard flight operations"
+        bestFor: "10+ hrs"
     },
     
     // Dry Rate Details
     dryRate: {
         description: "Basic aircraft rental",
         includes: [
-            "Aircraft rental only",
+            "Aircraft rental",
             "Customer provides fuel",
             "Customer responsible for pre-flight",
             "Basic equipment package"
         ],
-        bestFor: "Experienced pilots"
+        bestFor: "everyone"
     },
     
     // Payment Information
