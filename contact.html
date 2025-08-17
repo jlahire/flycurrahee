@@ -19,7 +19,6 @@
                 <a href="aircraft.html">Aircraft</a>
                 <a href="pricing.html">Pricing</a>
                 <a href="schedule.html">Schedule</a>
-                <a href="contact.html">Contact</a>
             </nav>
         </header>
 
@@ -36,13 +35,13 @@
                     <button onclick="callNow()" style="background: #059669; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;">
                         📞 Call Now
                     </button>
-                    <button onclick="showContactForm()" style="background: #1e3a8a; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;">
-                        ✉️ Send Message
-                    </button>
+                    <a href="mailto:" id="email-contact-link" style="background: #1e3a8a; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: background 0.3s;">
+                        ✉️ Send Email
+                    </a>
                 </div>
                 
                 <p style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 5px; font-style: italic;" id="response-note">
-                    For scheduling and information, please contact us directly. We respond to all inquiries within 24-48 hours.
+                    <strong>Best way to reach us:</strong> Call or leave a voicemail for the fastest response. We monitor our phone regularly throughout the day and respond to all inquiries within 24 hours.
                 </p>
             </div>
             
@@ -75,37 +74,6 @@
         </div>
         
         <!-- Contact Form Modal -->
-        <div id="contactFormModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
-            <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto;">
-                <h2 style="color: #1e3a8a; margin-bottom: 20px;">Send us a Message</h2>
-                <form id="contactForm" onsubmit="submitForm(event)">
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">First Name *</label>
-                        <input type="text" id="firstName" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Last Name *</label>
-                        <input type="text" id="lastName" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Phone Number *</label>
-                        <input type="tel" id="phoneNumber" required style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px;">
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Message *</label>
-                        <textarea id="message" required rows="4" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; font-size: 16px; resize: vertical;"></textarea>
-                    </div>
-                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                        <button type="button" onclick="hideContactForm()" style="background: #6b7280; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                            Cancel
-                        </button>
-                        <button type="submit" style="background: #1e3a8a; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
         
         <div class="contact-grid">
             <div class="card airport-info">
@@ -164,6 +132,9 @@
             document.getElementById('business-name-footer').textContent = CONTACT_INFO.businessName;
             document.getElementById('contact-phone').textContent = CONTACT_INFO.phone;
             document.getElementById('contact-email').textContent = CONTACT_INFO.email;
+            
+            // Set email link
+            document.getElementById('email-contact-link').href = 'mailto:' + CONTACT_INFO.email;
 
             // Populate business hours from schedule config
             if (SCHEDULE_CONFIG.businessHours) {
@@ -213,48 +184,6 @@
                 window.location.href = 'tel:(706) 555-0123';
             }
         }
-
-        function showContactForm() {
-            document.getElementById('contactFormModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function hideContactForm() {
-            document.getElementById('contactFormModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-            document.getElementById('contactForm').reset();
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
-            
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const phoneNumber = document.getElementById('phoneNumber').value;
-            const message = document.getElementById('message').value;
-            
-            const emailBody = `Name: ${firstName} ${lastName}%0D%0APhone: ${phoneNumber}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
-            
-            const emailSubject = `Contact Form - ${firstName} ${lastName}`;
-            const emailTo = typeof CONTACT_INFO !== 'undefined' ? CONTACT_INFO.email : 'info@flycurrahee.net';
-            
-            const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
-            
-            window.location.href = mailtoLink;
-            
-            // Hide form after submission
-            hideContactForm();
-            
-            // Show confirmation
-            alert('Thank you for your message! Your email client should open with the message ready to send.');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('contactFormModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                hideContactForm();
-            }
-        });
 
         // Add hover effects to buttons
         document.addEventListener('DOMContentLoaded', function() {
