@@ -29,7 +29,7 @@ const PRICING_CONFIG = {
     // Payment Information
     payment: {
         method: "Cash only",
-        timing: "Payment due at aircraft return",
+        timing: "Payment due at pre-flight",
         notes: "Please bring exact change when possible"
     },
     
