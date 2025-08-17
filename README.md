@@ -1,25 +1,23 @@
-# Aviation Website Template
+# website template
 
-A simple website for aviation businesses. Easy to update, works on phones, hosts free on GitHub.
+>Made this for my friend to use until his business gets big enough to warrant hiring someone to manage a website for him.
 
-## What You Get
+## What?
 
 - Homepage with business info
 - Aircraft page with specs
 - Pricing and scheduling pages
-- Contact form that emails you
+- Contact form that emails
 - Works on phones and computers
-- Free hosting forever
 
-## How to Use It
+## How?
 
 1. Get it online with GitHub Pages
 2. Edit the files in `config/` folder to add your info
-3. Done
+3. Add photos where necessary
+4. Done
 
-## Your Content Files
-
-All your business info is in these files - just edit them:
+## Edit
 
 - `contact-info.js` - Your phone, email, business name
 - `business-config.js` - Your rates and aircraft info  
@@ -29,7 +27,7 @@ All your business info is in these files - just edit them:
 
 Change these files, your website updates automatically.
 
-## The Pages
+## Pages
 
 - **Homepage** - Shows your business and aircraft info
 - **Aircraft** - Your plane's specs and rental requirements

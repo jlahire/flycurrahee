@@ -47,7 +47,7 @@ This guide shows you how to update your website content without any coding knowl
 
 Upload to `assets/images/aircraft/` with names:
 
-```
+```text
 Curahee-Aviation/assets/images/aircraft/
 ├── aircraft-1.JPG  ← Exterior view
 ├── aircraft-2.JPG  ← Cockpit view  
