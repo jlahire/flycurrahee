@@ -20,7 +20,7 @@ const AIRCRAFT_CONFIG = {
         transponder: "Garmin Transponder ADSB",
         attitude: "Garmin G5 Attitude",
         hsi: "Garmin GI275 HSI",
-        backup: "**Classic 6 pack**"
+        backup: "Classic 6 pack"
     },
     
     // Performance Specifications

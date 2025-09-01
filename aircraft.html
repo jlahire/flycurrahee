@@ -23,19 +23,25 @@
             </nav>
         </header>
 
-        <!-- Aircraft Photo Gallery Preview -->
+        <!-- Aircraft Photo Gallery - Auto Slideshow -->
         <div class="aircraft-gallery-preview" style="margin-bottom: 30px;">
-            <div onclick="openPhotoGallery()" style="position: relative; width: 100%; height: 350px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                <div style="text-align: center; color: #64748b;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">📸</div>
-                    <h3 style="color: #374151; margin-bottom: 10px;">Aircraft Photo Gallery</h3>
-                    <p style="color: #6b7280; margin-bottom: 15px;">View more photos of our Cessna 172</p>
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #1e3a8a; font-weight: 500;">
-                        <span>←</span>
-                        <span>Click to browse photos</span>
-                        <span>→</span>
-                    </div>
+            <div style="position: relative; width: 100%; height: 350px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;">
+                <img id="mainGalleryPhoto" src="Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG" alt="Aircraft Photo" 
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; transition: opacity 0.5s ease-in-out;"
+                     onerror="this.src='Curahee-Aviation/assets/images/aircraft/aircraft-1.jpg'; this.onerror=null;">
+                
+                <!-- Photo Counter -->
+                <div id="mainPhotoCounter" style="position: absolute; bottom: 15px; right: 15px; color: white; font-size: 14px; background: rgba(0,0,0,0.7); padding: 6px 12px; border-radius: 15px;">
+                    1 of 5
                 </div>
+                
+                <!-- Navigation arrows -->
+                <button onclick="previousMainPhoto()" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; color: #333; font-size: 24px; padding: 10px 15px; border-radius: 50%; cursor: pointer; opacity: 0.7; transition: opacity 0.3s;">
+                    ←
+                </button>
+                <button onclick="nextMainPhoto()" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; color: #333; font-size: 24px; padding: 10px 15px; border-radius: 50%; cursor: pointer; opacity: 0.7; transition: opacity 0.3s;">
+                    →
+                </button>
             </div>
         </div>
 
@@ -79,7 +85,7 @@
                     <li><span><strong>Service Ceiling:</strong></span> <span id="spec-ceiling">13,100 ft</span></li>
                     <li><span><strong>Range:</strong></span> <span id="spec-range">640 nautical miles</span></li>
                     <li><span><strong>Seating:</strong></span> <span id="spec-seating">4 seats</span></li>
-                    <li><span><strong>Fuel Capacity:</strong></span> <span id="spec-fuel">36 usable gallons</span></li>
+                    <li><span><strong>Fuel Capacity:</strong></span> <span id="spec-fuel">42 gallons</span></li>
                 </ul>
             </div>
             
@@ -110,8 +116,8 @@
                 <hr style="margin: 20px 0; border: 1px solid rgba(255,255,255,0.3);">
                 <div>
                     <h3>Dry Rate</h3>
-                    <div class="rate"><span id="dry-rate">Available on req.</span></div>
-                    <p>Aircraft only - fuel separate</p>
+                    <div class="rate"><span id="dry-rate">Wet rate w/ dry on req.</span></div>
+                    <p>Available upon request</p>
                 </div>
             </div>
             
@@ -151,6 +157,20 @@
 
     <!-- Dynamic Content Loading & Carousel -->
     <script>
+        // Auto slideshow variables
+        let mainGalleryInterval;
+        let currentMainPhotoIndex = 0;
+        const MAIN_SLIDESHOW_INTERVAL = 4000; // 4 seconds between photos
+        
+        // Photo slideshow array (renamed to avoid conflicts)
+        const slideshowPhotos = [
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-1.JPG', alt: 'Aircraft exterior view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-2.JPG', alt: 'Aircraft cockpit view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-3.JPG', alt: 'Aircraft interior view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-4.JPG', alt: 'Aircraft engine view' },
+            { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-5.JPG', alt: 'Aircraft on ramp view' }
+        ];
+
         document.addEventListener('DOMContentLoaded', function() {
             // Populate content from config files
             if (typeof CONTACT_INFO !== 'undefined' && 
@@ -162,8 +182,78 @@
                 console.warn('Some config files not loaded, using default content');
             }
             
+            // Start auto slideshow immediately
+            startMainSlideshow();
+            
             // Initialize carousel
             initCarousel();
+        });
+
+        function startMainSlideshow() {
+            mainGalleryInterval = setInterval(nextMainPhoto, MAIN_SLIDESHOW_INTERVAL);
+        }
+
+        function stopMainSlideshow() {
+            if (mainGalleryInterval) {
+                clearInterval(mainGalleryInterval);
+                mainGalleryInterval = null;
+            }
+        }
+
+        function nextMainPhoto() {
+            currentMainPhotoIndex = (currentMainPhotoIndex + 1) % slideshowPhotos.length;
+            showMainPhoto();
+        }
+
+        function previousMainPhoto() {
+            currentMainPhotoIndex = (currentMainPhotoIndex - 1 + slideshowPhotos.length) % slideshowPhotos.length;
+            showMainPhoto();
+            // Restart slideshow after manual navigation
+            stopMainSlideshow();
+            startMainSlideshow();
+        }
+
+        function showMainPhoto() {
+            const photo = slideshowPhotos[currentMainPhotoIndex];
+            const photoElement = document.getElementById('mainGalleryPhoto');
+            const counterElement = document.getElementById('mainPhotoCounter');
+            
+            // Try uppercase first, fallback to lowercase
+            const img = new Image();
+            img.onload = function() {
+                photoElement.src = this.src;
+                photoElement.alt = photo.alt;
+            };
+            img.onerror = function() {
+                // Try lowercase version
+                const lowercaseSrc = photo.src.replace('.JPG', '.jpg');
+                const fallbackImg = new Image();
+                fallbackImg.onload = function() {
+                    photoElement.src = this.src;
+                    photoElement.alt = photo.alt;
+                };
+                fallbackImg.onerror = function() {
+                    console.warn('Photo not found:', photo.src);
+                };
+                fallbackImg.src = lowercaseSrc;
+            };
+            img.src = photo.src;
+            
+            // Update counter
+            counterElement.textContent = `${currentMainPhotoIndex + 1} of ${slideshowPhotos.length}`;
+        }
+
+        // Pause slideshow on hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.querySelector('.aircraft-gallery-preview');
+            
+            gallery.addEventListener('mouseenter', function() {
+                stopMainSlideshow();
+            });
+            
+            gallery.addEventListener('mouseleave', function() {
+                startMainSlideshow();
+            });
         });
 
         function populateContent() {
@@ -247,27 +337,53 @@
             { src: 'Curahee-Aviation/assets/images/aircraft/aircraft-5.JPG', alt: 'Aircraft on ramp view' }
         ];
 
+        // Photo Gallery Variables
+        let galleryInterval;
+        const SLIDESHOW_INTERVAL = 3000; // 3 seconds between photos
+
         // Photo Gallery Functions
         function openPhotoGallery() {
             currentPhotoIndex = 0;
             document.getElementById('photoGalleryModal').style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
             showCurrentPhoto();
+            startSlideshow();
         }
 
         function closePhotoGallery() {
             document.getElementById('photoGalleryModal').style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+            stopSlideshow();
+        }
+
+        function startSlideshow() {
+            stopSlideshow(); // Clear any existing interval
+            galleryInterval = setInterval(nextPhoto, SLIDESHOW_INTERVAL);
+        }
+
+        function stopSlideshow() {
+            if (galleryInterval) {
+                clearInterval(galleryInterval);
+                galleryInterval = null;
+            }
         }
 
         function nextPhoto() {
             currentPhotoIndex = (currentPhotoIndex + 1) % aircraftPhotos.length;
             showCurrentPhoto();
+            // Restart the slideshow timer when user manually navigates
+            if (galleryInterval) {
+                startSlideshow();
+            }
         }
 
         function previousPhoto() {
             currentPhotoIndex = (currentPhotoIndex - 1 + aircraftPhotos.length) % aircraftPhotos.length;
             showCurrentPhoto();
+            // Restart the slideshow timer when user manually navigates
+            if (galleryInterval) {
+                startSlideshow();
+            }
         }
 
         function showCurrentPhoto() {
@@ -323,6 +439,23 @@
             if (event.target === this) {
                 closePhotoGallery();
             }
+        });
+
+        // Pause slideshow on hover, resume on mouse leave
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('photoGalleryModal');
+            
+            modal.addEventListener('mouseenter', function() {
+                if (modal.style.display === 'flex') {
+                    stopSlideshow();
+                }
+            });
+            
+            modal.addEventListener('mouseleave', function() {
+                if (modal.style.display === 'flex') {
+                    startSlideshow();
+                }
+            });
         });
     </script>
 </body>
