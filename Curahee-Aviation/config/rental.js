@@ -5,7 +5,8 @@ const RENTAL_CONFIG = {
     // Pilot Qualifications
     pilotQualifications: [
         "Private Pilot Certificate minimum OR Student Pilot with instructor endorsement",
-        "Current flight review (BFR) or instructor endorsement"
+        "Current flight review (BFR) or instructor endorsement",
+        "Current Medical"
     ],
     
     // Insurance Requirements
