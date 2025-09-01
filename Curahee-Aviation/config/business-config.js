@@ -1,7 +1,7 @@
 const BUSINESS_CONFIG = {
-    tagline: "Student pilots welcome", // [edit] from "Soar Above the Mountains of North Georgia"
+    tagline: "Student pilots welcome", 
     wetRate: "$180",
-    dryRate: "Wet rate w/ dry on req.", // [edit] from "$130" - remove wet/dry -> Wet rate w/ dry on req.
+    dryRate: "Available on req.", 
     aircraftYear: "1965",
     aircraftModel: "Cessna 172"
 };

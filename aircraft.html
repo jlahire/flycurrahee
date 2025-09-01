@@ -73,16 +73,33 @@
                 <ul class="specs">
                     <li><span><strong>Make/Model:</strong></span> <span><span id="spec-make">Cessna</span> <span id="spec-model">172</span></span></li>
                     <li><span><strong>Year:</strong></span> <span id="spec-year">1965</span></li>
-                    <li><span><strong>Engine:</strong></span> <span id="spec-engine">Continental O-300</span></li>
+                    <li><span><strong>Engine:</strong></span> <span id="spec-engine">O-300D</span></li>
                     <li><span><strong>Horsepower:</strong></span> <span id="spec-horsepower">145 HP</span></li>
                     <li><span><strong>Cruise Speed:</strong></span> <span id="spec-cruise">122 knots</span></li>
                     <li><span><strong>Service Ceiling:</strong></span> <span id="spec-ceiling">13,100 ft</span></li>
                     <li><span><strong>Range:</strong></span> <span id="spec-range">640 nautical miles</span></li>
                     <li><span><strong>Seating:</strong></span> <span id="spec-seating">4 seats</span></li>
-                    <li><span><strong>Fuel Capacity:</strong></span> <span id="spec-fuel">42 gallons</span></li>
+                    <li><span><strong>Fuel Capacity:</strong></span> <span id="spec-fuel">36 usable gallons</span></li>
                 </ul>
             </div>
             
+            <!-- Avionics Card - NEW -->
+            <div class="card">
+                <h2>Avionics Suite</h2>
+                <ul class="specs" id="avionics-list">
+                    <li><span><strong>Garmin Suite</strong></span></li>
+                    <li><span><strong>Intercom:</strong></span> <span>Garmin 325</span></li>
+                    <li><span><strong>GPS:</strong></span> <span>Garmin 650</span></li>
+                    <li><span><strong>NAV/Com:</strong></span> <span>Garmin NAV/Com</span></li>
+                    <li><span><strong>Transponder:</strong></span> <span>Garmin Transponder ADSB</span></li>
+                    <li><span><strong>Attitude:</strong></span> <span>Garmin G5</span></li>
+                    <li><span><strong>HSI:</strong></span> <span>Garmin GI275</span></li>
+                    <li><span><strong>Backup:</strong></span> <span><strong>Classic 6 pack</strong></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="aircraft-info">
             <div class="card rate-card">
                 <h2>Rental Rates</h2>
                 <div>
@@ -93,34 +110,23 @@
                 <hr style="margin: 20px 0; border: 1px solid rgba(255,255,255,0.3);">
                 <div>
                     <h3>Dry Rate</h3>
-                    <div class="rate"><span id="dry-rate">$130</span>/hr</div>
+                    <div class="rate"><span id="dry-rate">Available on req.</span></div>
                     <p>Aircraft only - fuel separate</p>
                 </div>
-            </div>
-        </div>
-        
-        <div class="aircraft-info">
-            <div class="card">
-                <h2>Perfect For</h2>
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">Solo practice and building hours</li>
-                </ul>
             </div>
             
             <div class="card requirements">
                 <h2>Rental Requirements</h2>
                 <h3>Minimum Qualifications:</h3>
                 <ul id="pilot-qualifications" style="margin: 10px 0 0 20px;">
-                    <li>Valid Private Pilot Certificate or higher</li>
-                    <li>Current medical certificate</li>
-                    <li>Minimum 100 hours total flight time</li>
-                    <li>Current flight review (BFR)</li>
+                    <li>Private Pilot Certificate minimum OR Student Pilot with instructor endorsement</li>
+                    <li>Current flight review (BFR) or instructor endorsement</li>
                 </ul>
                 
                 <h3 style="margin-top: 15px;">Insurance Requirements:</h3>
                 <ul id="insurance-requirements" style="margin: 10px 0 0 20px;">
-                    <li>Renter's insurance required</li>
-                    <li>Certificate of insurance must be provided</li>
+                    <li>Aircraft insured by owner</li>
+                    <li>Supplimental insurance optional</li>
                 </ul>
                 
                 <h3 style="margin-top: 15px;">Checkout Procedures:</h3>
@@ -181,6 +187,28 @@
             document.getElementById('spec-range').textContent = AIRCRAFT_CONFIG.range;
             document.getElementById('spec-seating').textContent = AIRCRAFT_CONFIG.seating;
             document.getElementById('spec-fuel').textContent = AIRCRAFT_CONFIG.fuelCapacity;
+
+            // Populate avionics from aircraft config if available
+            if (AIRCRAFT_CONFIG.avionics) {
+                const avionicsList = document.getElementById('avionics-list');
+                if (avionicsList && typeof AIRCRAFT_CONFIG.avionics === 'object') {
+                    avionicsList.innerHTML = '';
+                    
+                    // Add each avionics item
+                    Object.entries(AIRCRAFT_CONFIG.avionics).forEach(([key, value]) => {
+                        const li = document.createElement('li');
+                        if (key === 'garminSuite') {
+                            li.innerHTML = `<span><strong>${value}</strong></span>`;
+                        } else if (key === 'backup') {
+                            li.innerHTML = `<span><strong>Backup:</strong></span> <span>${value}</span>`;
+                        } else {
+                            const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+                            li.innerHTML = `<span><strong>${label}:</strong></span> <span>${value}</span>`;
+                        }
+                        avionicsList.appendChild(li);
+                    });
+                }
+            }
 
             // Populate rates from business config
             document.getElementById('wet-rate').textContent = BUSINESS_CONFIG.wetRate;

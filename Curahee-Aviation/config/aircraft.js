@@ -13,8 +13,8 @@ const AIRCRAFT_CONFIG = {
     
     // Avionics Suite - [ins. avionics card below aircraft specs]
     avionics: {
-        garminSuite: "Garmin Suite",
-        intercom: "Garmin 325 Intercom",
+        garminSuite: "Avionics Suite",
+        intercom: "GNC 255 Intercom",
         gps: "Garmin 650 GPS",
         navCom: "Garmin NAV/Com",
         transponder: "Garmin Transponder ADSB",
@@ -30,12 +30,12 @@ const AIRCRAFT_CONFIG = {
     
     // Physical Specifications
     seating: "4 seats",
-    fuelCapacity: "42 gallons",
+    fuelCapacity: "36 gallons usable",
     
     // Additional Specifications
-    emptyWeight: "1,350 lbs",
+    emptyWeight: "1,404 lbs",
     maxGrossWeight: "2,300 lbs",
-    usefulLoad: "950 lbs",
+    usefulLoad: "896 lbs",
     
     
     // Maintenance & Condition

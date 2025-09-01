@@ -27,8 +27,8 @@
             <div class="card">
                 <h2>Contact Information</h2>
                 <div class="contact-info">
-                    <p><strong>Phone:</strong> <span id="contact-phone">(706) 555-0123</span></p>
-                    <p><strong>Email:</strong> <span id="contact-email">info@flycurrahee.net</span></p>
+                    <p><strong>Phone:</strong> <span id="contact-phone">(706) 491-7293</span></p>
+                    <p><strong>Email:</strong> <span id="contact-email">andrewburkhart@flycurrahee.net</span></p>
                     <p><strong>Payment:</strong> <span id="payment-method">Cash only</span></p>
                 </div>
                 
@@ -42,7 +42,7 @@
                 </div>
                 
                 <p style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 5px; font-style: italic;" id="response-note">
-                    <strong>Best way to reach us:</strong> Call or leave a voicemail for the fastest response. We monitor our phone regularly throughout the day and respond to all inquiries within 24 hours.
+                    <strong>Best way to reach us:</strong> Call or leave a voicemail for the fastest response. We monitor our phone regularly throughout the day and respond to all inquiries within <span id="response-time-text">24 - 48 hours</span>.
                 </p>
             </div>
             
@@ -74,8 +74,6 @@
             </div>
         </div>
         
-        <!-- Contact Form Modal -->
-        
         <div class="contact-grid">
             <div class="card airport-info">
                 <h2>Airport Information</h2>
@@ -90,17 +88,13 @@
                 </div>
             </div>
             
-            <div class="card directions">
-                <h2>🗺️ Driving Directions</h2>
-                <p><strong id="directions-from">From Atlanta (90 minutes):</strong></p>
-                <ol id="directions-steps">
-                    <li>Take I-85 North to Exit 177 (Lavonia/Toccoa)</li>
-                    <li>Turn right on Highway 17 North</li>
-                    <li>Continue 8 miles to Toccoa</li>
-                    <li>Turn left on Airport Road</li>
-                    <li>Follow signs to terminal building</li>
-                </ol>
-                <p style="margin-top: 15px;"><strong>GPS Coordinates:</strong> <span id="gps-coordinates">34.5928°N, 83.2956°W</span></p>
+            <div class="card location">
+                <h2>Location</h2>
+                <div class="location-details">
+                    <p><strong>City:</strong> <span id="location-city">Toccoa</span></p>
+                    <p><strong>State:</strong> <span id="location-state">GA</span></p>
+                    <p><strong>Region:</strong> <span id="location-region">North Georgia mountains</span></p>
+                </div>
             </div>
         </div>
 
@@ -137,6 +131,11 @@
             // Set email link
             document.getElementById('email-contact-link').href = 'mailto:' + CONTACT_INFO.email;
 
+            // Populate response time from contact info
+            if (CONTACT_INFO.responseTime) {
+                document.getElementById('response-time-text').textContent = CONTACT_INFO.responseTime;
+            }
+
             // Populate business hours from schedule config
             if (SCHEDULE_CONFIG.businessHours) {
                 document.getElementById('weekday-hours').textContent = SCHEDULE_CONFIG.businessHours.weekdays;
@@ -144,11 +143,6 @@
                 document.getElementById('sunday-hours').textContent = SCHEDULE_CONFIG.businessHours.sunday;
                 document.getElementById('holiday-hours').textContent = SCHEDULE_CONFIG.businessHours.holidays;
                 document.getElementById('hours-notes').textContent = SCHEDULE_CONFIG.businessHours.notes;
-            }
-
-            // Populate response time
-            if (SCHEDULE_CONFIG.scheduling && SCHEDULE_CONFIG.scheduling.responseTime) {
-                document.getElementById('response-note').innerHTML = `For scheduling and information, please contact us directly. ${SCHEDULE_CONFIG.scheduling.responseTime}.`;
             }
 
             // Populate airport information
@@ -163,18 +157,11 @@
                 document.getElementById('airport-services').textContent = AIRPORT_CONFIG.airport.services;
             }
 
-            // Populate directions
-            if (AIRPORT_CONFIG.directions) {
-                document.getElementById('directions-from').textContent = AIRPORT_CONFIG.directions.fromLocation;
-                document.getElementById('gps-coordinates').textContent = AIRPORT_CONFIG.directions.gpsCoordinates;
-                
-                const stepsList = document.getElementById('directions-steps');
-                stepsList.innerHTML = '';
-                AIRPORT_CONFIG.directions.steps.forEach(step => {
-                    const li = document.createElement('li');
-                    li.textContent = step;
-                    stepsList.appendChild(li);
-                });
+            // Populate location information (no driving directions per your request)
+            if (AIRPORT_CONFIG.location) {
+                document.getElementById('location-city').textContent = AIRPORT_CONFIG.location.city;
+                document.getElementById('location-state').textContent = AIRPORT_CONFIG.location.state;
+                document.getElementById('location-region').textContent = AIRPORT_CONFIG.location.region;
             }
         }
 
@@ -182,7 +169,7 @@
             if (typeof CONTACT_INFO !== 'undefined' && CONTACT_INFO.phone) {
                 window.location.href = 'tel:' + CONTACT_INFO.phone;
             } else {
-                window.location.href = 'tel:(706) 555-0123';
+                window.location.href = 'tel:(706) 491-7293';
             }
         }
 
