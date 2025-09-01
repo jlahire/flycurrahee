@@ -1,85 +1,102 @@
-/* Aviation Website Styles - Original Beautiful Design with Modular Features */
-/* Perfect blend of the original simple beauty with modern functionality */
+/* Aviation Website Styles - Complete Rewrite with Consistent Logo Sizing */
 
-/* Base styles - ensure no overflow */
-* { 
-    margin: 0; 
-    padding: 0; 
+/* Base Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    line-height: 1.6; 
-    color: #2c3e50; 
-    background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     width: 100%;
     overflow-x: hidden;
 }
 
-/* Header Styles - Exactly like original */
-header { 
-    background: rgba(255,255,255,0.95); 
-    border-radius: 10px; 
-    padding: 30px; 
-    margin-bottom: 30px; 
-    text-align: center; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* Header Styles with Consistent Logo Sizing */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1 { 
-    color: #1e3a8a; 
-    font-size: 2.5em; 
-    margin-bottom: 10px; 
+.header-logo-container {
+    margin-bottom: 15px;
+}
+
+/* Consistent Logo Sizing - NO responsive shrinking */
+.header-logo,
+.header-logo-small {
+    height: 80px;
+    width: auto;
+    max-height: 80px;
+    min-height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #1e3a8a;
+    font-size: 2.5em;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-.tagline { 
-    color: #4682B4; 
-    font-size: 1.2em; 
-    font-style: italic; 
+.tagline {
+    color: #4682B4;
+    font-size: 1.2em;
+    font-style: italic;
     margin-bottom: 20px;
 }
 
-/* Navigation - Original style */
-nav { 
-    margin-top: 20px; 
+/* Navigation */
+nav {
+    margin-top: 20px;
 }
 
-nav a { 
-    background: #1e3a8a; 
-    color: white; 
-    padding: 12px 24px; 
-    margin: 5px; 
-    text-decoration: none; 
-    border-radius: 5px; 
-    display: inline-block; 
+nav a {
+    background: #1e3a8a;
+    color: white;
+    padding: 12px 24px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
     transition: background 0.3s;
+    font-weight: 500;
 }
 
-nav a:hover { 
+nav a:hover {
     background: #2563eb;
+    transform: translateY(-1px);
 }
 
-/* Carousel Styles - Clean and simple like original design */
-.carousel-container {
+/* Carousel and Slideshow Styles */
+.carousel-container,
+.aircraft-gallery-preview {
     position: relative;
     max-width: 100%;
     margin: 0 auto 30px auto;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    background: rgba(255,255,255,0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .carousel {
@@ -134,25 +151,31 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Main Content Grid - Original style */
-.main-content { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 30px; 
+/* Main Content Grid */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
-/* Card Styles - Exactly like original */
-.card { 
-    background: rgba(255,255,255,0.95); 
-    padding: 30px; 
-    border-radius: 10px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card h2 { 
-    color: #1e3a8a; 
-    margin-bottom: 15px; 
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: #1e3a8a;
+    margin-bottom: 15px;
     font-size: 1.5em;
 }
 
@@ -162,40 +185,43 @@ nav a:hover {
     font-size: 1.2em;
 }
 
-/* Rate Display - Original style */
-.rate { 
-    font-size: 1.5em; 
-    color: #dc2626; 
-    font-weight: bold; 
+/* Rate Display */
+.rate {
+    font-size: 1.5em;
+    color: #dc2626;
+    font-weight: bold;
     margin: 10px 0;
 }
 
-/* Features List - Original style */
-.features { 
-    list-style: none; 
+/* Features List */
+.features {
+    list-style: none;
 }
 
-.features li { 
-    padding: 8px 0; 
+.features li {
+    padding: 8px 0;
     border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
 }
 
-.features li:last-child { 
-    border-bottom: none; 
+.features li:last-child {
+    border-bottom: none;
 }
 
-.features li::before { 
-    content: '✈️ '; 
-    margin-right: 10px; 
+.features li::before {
+    content: '✈️ ';
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
-/* Contact CTA - Styled to match original theme */
+/* Contact CTA */
 .contact-cta {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -232,6 +258,7 @@ nav a:hover {
     color: #1e3a8a;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
@@ -239,49 +266,61 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Aircraft Info Styles */
-.aircraft-info { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 30px; 
+/* Aircraft Info and Specifications */
+.aircraft-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
-.specs { 
-    list-style: none; 
+.specs {
+    list-style: none;
 }
 
-.specs li { 
-    padding: 5px 0; 
-    display: flex; 
-    justify-content: space-between; 
+.specs li {
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     border-bottom: 1px solid #e5e7eb;
 }
 
-.specs li:last-child { 
-    border-bottom: none; 
+.specs li:last-child {
+    border-bottom: none;
+}
+
+.specs li span:first-child {
+    font-weight: 600;
+    color: #374151;
+    flex-shrink: 0;
+}
+
+.specs li span:last-child {
+    text-align: right;
+    margin-left: 20px;
 }
 
 /* Rate Cards */
-.rate-card { 
-    text-align: center; 
-    background: linear-gradient(135deg, #1e3a8a, #2563eb); 
+.rate-card {
+    text-align: center;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: white;
     padding: 30px;
 }
 
-.rate-card .rate { 
-    font-size: 2em; 
-    font-weight: bold; 
+.rate-card .rate {
+    font-size: 2em;
+    font-weight: bold;
     margin: 15px 0;
     color: white;
 }
 
-.rate-card h2, .rate-card h3 {
+.rate-card h2,
+.rate-card h3 {
     color: white;
 }
 
-/* Fix rate card lists to stay inside boxes */
 .rate-card ul {
     text-align: left;
     margin: 15px 20px;
@@ -295,291 +334,299 @@ nav a:hover {
     padding-left: 0;
 }
 
-/* Special Cards */
-.requirements { 
-    background: #fef3c7; 
+/* Special Card Types */
+.requirements {
+    background: #fef3c7;
     border-left: 5px solid #f59e0b;
 }
 
-.requirements h3 { 
-    color: #92400e; 
-    margin-bottom: 10px; 
+.requirements h3 {
+    color: #92400e;
+    margin-bottom: 10px;
 }
 
-.business-hours { 
-    background: #f8fafc; 
+.business-hours {
+    background: #f8fafc;
     border-left: 5px solid #4682B4;
 }
 
-.airport-info { 
-    background: #ecfdf5; 
+.airport-info {
+    background: #ecfdf5;
     border-left: 5px solid #059669;
 }
 
-.airport-info h2 { 
-    color: #065f46; 
+.airport-info h2 {
+    color: #065f46;
 }
 
-.directions { 
-    background: #fef3c7; 
+.directions {
+    background: #fef3c7;
     border-left: 5px solid #f59e0b;
 }
 
-.directions h2 { 
-    color: #92400e; 
+.directions h2 {
+    color: #92400e;
 }
 
-.directions ol { 
-    margin: 15px 0 0 25px; 
+.directions ol {
+    margin: 15px 0 0 25px;
 }
 
-.directions li { 
-    margin: 5px 0; 
+.directions li {
+    margin: 5px 0;
+}
+
+.weather-card {
+    background: #fef3c7;
+    border-left: 5px solid #f59e0b;
+}
+
+.weather-card h2 {
+    color: #92400e;
 }
 
 /* Tables */
-.hours-table, .business-hours table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin: 15px 0; 
+.hours-table,
+.business-hours table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
 }
 
-.hours-table th, .hours-table td,
-.business-hours th, .business-hours td { 
-    padding: 8px; 
-    text-align: left; 
-    border-bottom: 1px solid #e5e7eb; 
+.hours-table th,
+.hours-table td,
+.business-hours th,
+.business-hours td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.hours-table th, .business-hours th { 
-    background: #1e3a8a; 
-    color: white; 
+.hours-table th,
+.business-hours th {
+    background: #1e3a8a;
+    color: white;
     font-weight: bold;
 }
 
 /* Contact Info */
-.contact-info { 
-    font-size: 1.1em; 
+.contact-info {
+    font-size: 1.1em;
 }
 
-.contact-info p { 
-    margin: 10px 0; 
-    display: flex; 
-    align-items: center; 
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.contact-info strong { 
-    display: inline-block; 
+.contact-info strong {
+    display: inline-block;
     width: 100px;
+    flex-shrink: 0;
 }
 
 /* Location Details */
-.location-details p { 
-    margin: 8px 0; 
+.location-details p {
+    margin: 8px 0;
 }
 
 /* Emergency Styles */
-.emergency { 
-    background: #fee2e2; 
-    border-left: 5px solid #dc2626; 
-    text-align: center; 
-    padding: 20px; 
-    border-radius: 10px; 
-    margin-bottom: 30px; 
+.emergency {
+    background: #fee2e2;
+    border-left: 5px solid #dc2626;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.emergency h2 { 
-    color: #991b1b; 
-    margin-bottom: 10px; 
+.emergency h2 {
+    color: #991b1b;
+    margin-bottom: 10px;
 }
 
-.emergency p { 
-    font-size: 1.1em; 
+.emergency p {
+    font-size: 1.1em;
 }
 
 /* Pricing Grid */
-.pricing-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 30px; 
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
-.rate-card.wet { 
-    border-top: 5px solid #059669; 
+.rate-card.wet {
+    border-top: 5px solid #059669;
 }
 
-.rate-card.dry { 
-    border-top: 5px solid #dc2626; 
+.rate-card.dry {
+    border-top: 5px solid #dc2626;
 }
 
-.rate-card.wet .rate { 
-    color: #059669; 
+.rate-card.wet .rate {
+    color: #059669;
 }
 
-.rate-card.dry .rate { 
-    color: #dc2626; 
+.rate-card.dry .rate {
+    color: #dc2626;
 }
 
 /* Policies */
-.policies { 
-    background: rgba(255,255,255,0.95); 
-    padding: 25px; 
-    border-radius: 10px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom: 30px; 
+.policies {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-.policies h2 { 
-    color: #1e3a8a; 
-    margin-bottom: 20px; 
+.policies h2 {
+    color: #1e3a8a;
+    margin-bottom: 20px;
 }
 
-.policy-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 25px; 
+.policy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
-.policy-section h3 { 
-    color: #4682B4; 
-    margin-bottom: 10px; 
+.policy-section h3 {
+    color: #4682B4;
+    margin-bottom: 10px;
 }
 
-.policy-section ul { 
-    margin-left: 20px; 
+.policy-section ul {
+    margin-left: 20px;
 }
 
-.policy-section li { 
-    margin-bottom: 5px; 
+.policy-section li {
+    margin-bottom: 5px;
 }
 
 /* Payment Info */
-.payment-info { 
-    background: #fef3c7; 
-    border-left: 5px solid #f59e0b; 
-    padding: 20px; 
-    border-radius: 10px; 
-    margin-bottom: 30px; 
-}
-
-.payment-info h2 { 
-    color: #92400e; 
-    margin-bottom: 10px; 
-}
-
-/* Schedule Styles */
-.schedule-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 30px; 
-}
-
-.contact-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px; 
-    margin-bottom: 30px; 
-}
-
-.steps { 
-    list-style: none; 
-    counter-reset: step-counter; 
-}
-
-.steps li { 
-    counter-increment: step-counter; 
-    padding: 15px 0; 
-    border-bottom: 1px solid #e5e7eb; 
-    position: relative; 
-    padding-left: 50px; 
-}
-
-.steps li:last-child { 
-    border-bottom: none; 
-}
-
-.steps li::before { 
-    content: counter(step-counter); 
-    position: absolute; 
-    left: 0; 
-    top: 15px; 
-    background: #1e3a8a; 
-    color: white; 
-    width: 30px; 
-    height: 30px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-weight: bold;
-}
-
-.weather-card { 
-    background: #fef3c7; 
+.payment-info {
+    background: #fef3c7;
     border-left: 5px solid #f59e0b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.weather-card h2 { 
-    color: #92400e; 
+.payment-info h2 {
+    color: #92400e;
+    margin-bottom: 10px;
 }
 
-.bring-list { 
-    list-style: none; 
+/* Schedule and Contact Grids */
+.schedule-grid,
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
-.bring-list li { 
-    padding: 8px 0; 
-    border-bottom: 1px solid #e5e7eb; 
+/* Steps List */
+.steps {
+    list-style: none;
+    counter-reset: step-counter;
 }
 
-.bring-list li:last-child { 
-    border-bottom: none; 
+.steps li {
+    counter-increment: step-counter;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+    padding-left: 50px;
 }
 
-.bring-list li::before { 
-    content: '📋 '; 
-    margin-right: 10px; 
+.steps li:last-child {
+    border-bottom: none;
 }
 
-/* Footer - Original style */
-footer { 
-    background: rgba(255,255,255,0.95); 
-    padding: 20px; 
-    border-radius: 10px; 
-    text-align: center; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 15px;
+    background: #1e3a8a;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Bring List */
+.bring-list {
+    list-style: none;
+}
+
+.bring-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bring-list li:last-child {
+    border-bottom: none;
+}
+
+.bring-list li::before {
+    content: '📋 ';
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Footer */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
 }
 
 footer p {
     margin: 5px 0;
+    color: #6b7280;
 }
 
-/* Responsive Design - Original breakpoints */
+/* Responsive Design - Logo stays SAME SIZE */
 @media (max-width: 768px) {
-    .main-content, 
-    .aircraft-info, 
-    .pricing-grid, 
-    .schedule-grid, 
-    .policy-grid,
-    .contact-grid { 
-        grid-template-columns: 1fr; 
+    /* Logo stays same size - NO shrinking */
+    .header-logo,
+    .header-logo-small {
+        height: 80px;
+        width: auto;
+        max-height: 80px;
+        min-height: 80px;
     }
     
-    h1 { 
+    /* Grid layouts become single column */
+    .main-content,
+    .aircraft-info,
+    .pricing-grid,
+    .schedule-grid,
+    .policy-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
         font-size: 2em;
         word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    /* Logo responsive sizing */
-    .header-logo {
-        height: 45px;
-    }
-    
-    .header-logo-small {
-        height: 40px;
     }
     
     .header-logo-container {
@@ -587,15 +634,14 @@ footer p {
         flex-wrap: wrap;
     }
     
-    nav a { 
-        display: block; 
+    nav a {
+        display: block;
         margin: 5px 0;
-        word-wrap: break-word;
+        padding: 10px 20px;
     }
     
-    .rate { 
+    .rate {
         font-size: 1.4em;
-        word-wrap: break-word;
     }
     
     .carousel {
@@ -609,58 +655,49 @@ footer p {
     
     .container {
         padding: 15px;
-        max-width: 100%;
-        overflow-x: hidden;
     }
     
     .card {
         padding: 20px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
     
-    /* Ensure tables don't overflow */
-    .hours-table, .business-hours table {
+    .hours-table,
+    .business-hours table {
         font-size: 0.9em;
-        overflow-x: auto;
-        display: block;
-        white-space: nowrap;
     }
     
-    .hours-table tbody, .business-hours tbody {
-        display: table;
-        width: 100%;
+    .specs li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .specs li span:last-child {
+        text-align: left;
+        margin-left: 0;
     }
 }
 
 @media (max-width: 480px) {
+    /* Logo STILL stays same size */
+    .header-logo,
+    .header-logo-small {
+        height: 80px;
+        width: auto;
+        max-height: 80px;
+        min-height: 80px;
+    }
+    
     .carousel {
         height: 200px;
     }
     
     h1 {
         font-size: 1.8em;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
     
     .tagline {
         font-size: 1.1em;
-        word-wrap: break-word;
-    }
-    
-    /* Smaller logo on very small screens */
-    .header-logo {
-        height: 35px;
-    }
-    
-    .header-logo-small {
-        height: 30px;
-    }
-    
-    .header-logo-container {
-        flex-direction: column;
-        gap: 8px;
     }
     
     .container {
@@ -671,30 +708,47 @@ footer p {
         padding: 15px;
     }
     
-    /* Ensure long text breaks properly */
-    p, li, span, div {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-    
-    /* Make navigation more mobile-friendly */
     nav a {
         padding: 10px 15px;
         font-size: 0.9em;
     }
     
-    /* Contact form mobile optimization */
     .contact-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
     }
     
-    /* Specs list mobile optimization */
-    .specs li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+    .contact-info strong {
+        width: auto;
+    }
+    
+    .steps li {
+        padding-left: 40px;
+    }
+    
+    .steps li::before {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .container {
+        max-width: none;
+        box-shadow: none;
+    }
+    
+    .card {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ddd;
     }
 }
