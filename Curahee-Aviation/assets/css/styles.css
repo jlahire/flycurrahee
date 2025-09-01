@@ -43,10 +43,10 @@ header {
 /* Consistent Logo Sizing - NO responsive shrinking */
 .header-logo,
 .header-logo-small {
-    height: 80px;
+    height: 120px;
     width: auto;
-    max-height: 80px;
-    min-height: 80px;
+    max-height: 120px;
+    min-height: 120px;
     display: block;
     margin: 0 auto;
 }
@@ -608,10 +608,10 @@ footer p {
     /* Logo stays same size - NO shrinking */
     .header-logo,
     .header-logo-small {
-        height: 80px;
+        height: 120px;
         width: auto;
-        max-height: 80px;
-        min-height: 80px;
+        max-height: 120px;
+        min-height: 120px;
     }
     
     /* Grid layouts become single column */
@@ -682,10 +682,10 @@ footer p {
     /* Logo STILL stays same size */
     .header-logo,
     .header-logo-small {
-        height: 80px;
+        height: 180px;
         width: auto;
-        max-height: 80px;
-        min-height: 80px;
+        max-height: 180px;
+        min-height: 180px;
     }
     
     .carousel {
