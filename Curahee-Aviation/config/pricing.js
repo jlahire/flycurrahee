@@ -26,7 +26,7 @@ const PRICING_CONFIG = {
         bestFor: "everyone"
     },
     
-    // Payment Information - [typo] fixed "possiblea" -> "possible"
+
     payment: {
         method: "Cash only",
         timing: "Payment due at pre-flight",
@@ -35,9 +35,6 @@ const PRICING_CONFIG = {
     
     // Additional Fees (customize as needed)
     additionalFees: {
-        // Placeholder for future fees
-        // overnightFee: "$50 per night",
-        // cleaningFee: "$25 if required",
-        // fuelHandlingFee: "$10 per fill-up"
+        // Placeholder 
     }
 };
