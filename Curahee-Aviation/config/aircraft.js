@@ -7,9 +7,21 @@ const AIRCRAFT_CONFIG = {
     model: "172",
     year: "1965",
     
-    // Engine Specifications
-    engine: "Continental O-300",
+    // Engine Specifications - [edit] "O-300D" changed to new avionics suite
+    engine: "O-300D",
     horsepower: "145 HP",
+    
+    // Avionics Suite - [ins. avionics card below aircraft specs]
+    avionics: {
+        garminSuite: "Garmin Suite",
+        intercom: "Garmin 325 Intercom",
+        gps: "Garmin 650 GPS",
+        navCom: "Garmin NAV/Com",
+        transponder: "Garmin Transponder ADSB",
+        attitude: "Garmin G5 Attitude",
+        hsi: "Garmin GI275 HSI",
+        backup: "**Classic 6 pack**"
+    },
     
     // Performance Specifications
     cruiseSpeed: "122 knots",
@@ -25,10 +37,6 @@ const AIRCRAFT_CONFIG = {
     maxGrossWeight: "2,300 lbs",
     usefulLoad: "950 lbs",
     
-    // Equipment & Features
-    avionics: "Standard VFR panel",
-    transponder: "Mode C transponder",
-    gps: "Panel-mounted GPS",
     
     // Maintenance & Condition
     annualDue: "Current",

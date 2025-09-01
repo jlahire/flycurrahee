@@ -37,16 +37,16 @@ const SCHEDULE_CONFIG = {
     
     // Weather Minimums
     weatherMinimums: {
-        policy: "Weather minimums are pilot decision",
+        policy: "Weather minimums are pilot discretion", // [edit] "decision.." -> "discretion."
         responsibility: "Pilot-in-command determines flight safety",
         cancellation: "Weather cancellations are free of charge",
         note: "We encourage conservative decision-making for flight safety"
     },
     
-    // What to Bring
+    // What to Bring - [edit] "valid..." -> current medical, [rm] gov. id
     whatToBring: [
         "Valid pilot certificate",
-        "Government-issued photo ID",
+        "Current medical", // [edit] from "Government-issued photo ID"
         "Current logbook",
         "Supplemental insurance (optional - aircraft is insured)",
         "Flight bag and personal equipment"

@@ -26,7 +26,7 @@ const PRICING_CONFIG = {
         bestFor: "everyone"
     },
     
-    // Payment Information
+    // Payment Information - [typo] fixed "possiblea" -> "possible"
     payment: {
         method: "Cash only",
         timing: "Payment due at pre-flight",
